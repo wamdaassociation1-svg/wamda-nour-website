@@ -1,217 +1,196 @@
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Globe, Users, BookOpen, MessageSquare, Phone, HeartHandshake, ChevronDown } from 'lucide-react';
-import { useState } from 'react';
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>جمعية ومضة نور للخدمات والرعاية</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'dark-bg': '#0f172a',
+            'green-glow': '#39ff14',
+          },
+          fontFamily: {
+            tajawal: ['Tajawal', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-dark-bg text-white font-tajawal min-h-screen">
 
-function App() {
-  const [lang, setLang] = useState('ar'); // ar, en, fr, es
+  <!-- النافبار -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-dark-bg/90 backdrop-blur-md border-b border-green-glow/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        <div class="flex flex-col items-start">
+          <span class="text-3xl font-bold">جمعية ومضة نور</span>
+          <span class="text-sm text-gray-400">للخدمات والرعاية</span>
+        </div>
+        <div class="hidden md:flex items-center space-x-8 space-x-reverse">
+          <a href="#" class="hover:text-green-glow transition">الرئيسية</a>
+          <a href="#" class="hover:text-green-glow transition">من نحن</a>
+          <a href="#" class="hover:text-green-glow transition">مؤتمراتنا</a>
+          <a href="#" class="hover:text-green-glow transition">مبادراتنا</a>
+          <a href="#" class="hover:text-green-glow transition">دوراتنا التدريبية</a>
+          <a href="#" class="hover:text-green-glow transition">محاضراتنا التوعوية</a>
+        </div>
+        <div class="flex items-center space-x-4 space-x-reverse">
+          <Globe class="h-6 w-6 text-green-glow cursor-pointer" />
+          <button class="bg-green-glow hover:bg-green-glow/90 text-black font-bold px-6 py-2 rounded-md">تبرع الآن</button>
+          <button class="border border-green-glow text-green-glow hover:bg-green-glow/10 px-6 py-2 rounded-md">دخول الأعضاء</button>
+        </div>
+      </div>
+    </div>
+  </nav>
 
-  const translations = {
-    ar: {
-      title: "جمعية ومضة نور",
-      subtitle: "للخدمات والرعاية",
-      hero: "نضئ دروب الخير ونصنع أثر مستدام",
-      heroBtn: "مبادراتنا الميدانية",
-      aboutTitle: "جمعية ومضة نور",
-      aboutSubtitle: "النبذة التعريفية",
-      aboutText: "تأسست جمعية ومضة نور ككيان إنساني يسعى لإحداث تغيير جذري ومستدام في حياة الأفراد. نحن نؤمن بأن الرعاية لا تقتصر على تقديم الخدمة فحسب، بل تمتد لتشمل تمكين المستفيدين وصناعة قادة للمستقبل. نعمل وفق رؤية طموحة تتماشى مع المعايير العالمية للحوكمة والشفافية.",
-      vision: "رؤيتنا: الريادة والتميز العالمي في تقديم الخدمات الرعوية والتنموية المستدامة.",
-      mission: "رسالتنا: تمكين المجتمعات عبر برامج نوعية ورعاية شاملة تضمن كرامة الإنسان.",
-      cards: ["المجلة", "المجتمع", "انضم إلينا", "اتصل بنا"],
-      international: "التسجيلات الدولية",
-      partners: "الشركاء الاستراتيجيون",
-      community: "المجتمع",
-      privacy: "السياسة والخصوصية",
-      footer: "© جمعية ومضة نور 2026 – جميع الحقوق محفوظة",
-    },
-    // أضيفي ترجمات en/fr/es هنا لاحقًا
-  };
+  <!-- الهيرو -->
+  <section class="relative h-screen flex items-center justify-center text-center pt-20">
+    <div class="absolute inset-0 bg-black/50"></div>
+    <div class="relative z-10 max-w-5xl px-4">
+      <h1 class="text-5xl md:text-6xl font-bold mb-12 leading-tight">
+        نضئ دروب <span class="text-green-glow">الخير</span> ونصنع أثر مستدام
+      </h1>
+      <button class="bg-green-glow hover:bg-green-glow/90 text-black text-xl px-12 py-6 rounded-md">
+        مبادراتنا الميدانية
+      </button>
+    </div>
+  </section>
 
-  const t = translations.ar; // غيّري للغة المختارة لاحقًا
+  <!-- نوري -->
+  <div class="fixed bottom-8 right-8 z-50">
+    <div class="bg-green-glow/20 backdrop-blur-lg rounded-full p-4 shadow-2xl shadow-green-glow/50 cursor-pointer hover:scale-110 transition">
+      <div class="w-16 h-16 rounded-full bg-gradient-to-br from-green-glow to-green-600 flex items-center justify-center text-black font-bold text-xl">
+        نوري
+      </div>
+    </div>
+  </div>
 
-  return (
-    <Router>
-      <div dir="rtl" className="min-h-screen bg-[#0f172a] text-white font-tajawal">
-        {/* Navbar */}
-        <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0f172a]/90 backdrop-blur-md border-b border-green-500/30">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between items-center h-20">
-              <div className="flex flex-col items-start">
-                <span className="text-2xl font-bold text-white">جمعية ومضة نور</span>
-                <span className="text-sm text-gray-400">للخدمات والرعاية</span>
-              </div>
-              <div className="hidden md:flex items-center space-x-8 space-x-reverse">
-                <Link to="/" className="hover:text-[#39ff14] transition">الرئيسية</Link>
-                <Link to="/about" className="hover:text-[#39ff14] transition">من نحن</Link>
-                <Link to="/conferences" className="hover:text-[#39ff14] transition">مؤتمراتنا</Link>
-                <Link to="/initiatives" className="hover:text-[#39ff14] transition">مبادراتنا</Link>
-                <Link to="/courses" className="hover:text-[#39ff14] transition">دوراتنا التدريبية</Link>
-                <Link to="/awareness" className="hover:text-[#39ff14] transition">محاضراتنا التوعوية</Link>
-              </div>
-              <div className="flex items-center space-x-4 space-x-reverse">
-                <Globe className="h-6 w-6 text-[#39ff14] cursor-pointer" />
-                <Button className="bg-[#39ff14] hover:bg-[#39ff14]/90 text-black font-bold">تبرع الآن</Button>
-                <Button variant="outline" className="border-[#39ff14] text-[#39ff14] hover:bg-[#39ff14]/10">دخول الأعضاء</Button>
-              </div>
-            </div>
+  <!-- النبذة -->
+  <section class="py-24 px-4 max-w-7xl mx-auto">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <h2 class="text-4xl font-bold mb-4 text-green-glow">جمعية ومضة نور</h2>
+        <h3 class="text-2xl mb-6">النبذة التعريفية</h3>
+        <p class="text-lg leading-relaxed mb-8">
+          تأسست جمعية ومضة نور ككيان إنساني يسعى لإحداث تغيير جذري ومستدام في حياة الأفراد. نحن نؤمن بأن الرعاية لا تقتصر على تقديم الخدمة فحسب، بل تمتد لتشمل تمكين المستفيدين وصناعة قادة للمستقبل. نعمل وفق رؤية طموحة تتماشى مع المعايير العالمية للحوكمة والشفافية.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-black/30 border border-green-glow/30 p-6 rounded-lg">
+            <h4 class="text-xl font-bold text-green-glow mb-2">رؤيتنا</h4>
+            <p>الريادة والتميز العالمي في تقديم الخدمات الرعوية والتنموية المستدامة.</p>
           </div>
-        </nav>
-
-        {/* Hero */}
-        <section className="relative h-screen flex items-center justify-center text-center">
-          <div className="absolute inset-0 bg-black/50"></div>
-          <div className="relative z-10 max-w-4xl px-4">
-            <h1 className="text-5xl md:text-7xl font-bold mb-8">
-              نضئ دروب <span className="text-[#39ff14]">الخير</span> ونصنع أثر مستدام
-            </h1>
-            <Button size="lg" className="bg-[#39ff14] hover:bg-[#39ff14]/90 text-black text-xl px-12 py-6">
-              مبادراتنا الميدانية
-            </Button>
-          </div>
-        </section>
-
-        {/* Noury */}
-        <div className="fixed bottom-8 right-8 z-50">
-          <div className="bg-[#39ff14]/20 backdrop-blur-lg rounded-full p-4 shadow-2xl shadow-[#39ff14]/30 cursor-pointer hover:scale-110 transition">
-            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#39ff14] to-green-600 flex items-center justify-center text-black font-bold text-xl">
-              نوري
-            </div>
+          <div class="bg-black/30 border border-green-glow/30 p-6 rounded-lg">
+            <h4 class="text-xl font-bold text-green-glow mb-2">رسالتنا</h4>
+            <p>تمكين المجتمعات عبر برامج نوعية ورعاية شاملة تضمن كرامة الإنسان.</p>
           </div>
         </div>
-
-        {/* النبذة */}
-        <section className="py-24 px-4 max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-4xl font-bold mb-4">جمعية ومضة نور</h2>
-              <h3 className="text-2xl text-[#39ff14] mb-6">النبذة التعريفية</h3>
-              <p className="text-lg leading-relaxed mb-8">
-                تأسست جمعية ومضة نور ككيان إنساني يسعى لإحداث تغيير جذري ومستدام في حياة الأفراد. نحن نؤمن بأن الرعاية لا تقتصر على تقديم الخدمة فحسب، بل تمتد لتشمل تمكين المستفيدين وصناعة قادة للمستقبل. نعمل وفق رؤية طموحة تتماشى مع المعايير العالمية للحوكمة والشفافية.
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <Card className="bg-black/30 border-[#39ff14]/30">
-                  <CardHeader>
-                    <CardTitle className="text-[#39ff14]">رؤيتنا</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p>الريادة والتميز العالمي في تقديم الخدمات الرعوية والتنموية المستدامة.</p>
-                  </CardContent>
-                </Card>
-                <Card className="bg-black/30 border-[#39ff14]/30">
-                  <CardHeader>
-                    <CardTitle className="text-[#39ff14]">رسالتنا</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p>تمكين المجتمعات عبر برامج نوعية ورعاية شاملة تضمن كرامة الإنسان.</p>
-                  </CardContent>
-                </Card>
-              </div>
-            </div>
-            <div className="h-96 bg-gray-800 rounded-xl"></div>
-          </div>
-        </section>
-
-        {/* الكروت */}
-        <section className="py-16 px-4 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
-          {['المجلة', 'المجتمع', 'انضم إلينا', 'اتصل بنا'].map((item) => (
-            <Card key={item} className="bg-black/30 border-[#39ff14]/30 hover:border-[#39ff14] transition cursor-pointer">
-              <CardContent className="p-6 text-center">
-                <h3 className="text-xl font-bold text-[#39ff14]">{item}</h3>
-              </CardContent>
-            </Card>
-          ))}
-        </section>
-
-        {/* التسجيلات الدولية */}
-        <section className="py-16 px-4 max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12 text-[#39ff14]">التسجيلات الدولية</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* كروت هنا – أضيفي عدد الكروت حسب الحاجة */}
-            <Card className="bg-black/30 border-[#39ff14]/30 hover:border-[#39ff14] transition cursor-pointer">
-              <CardContent className="p-6 text-center">
-                <div className="w-20 h-20 mx-auto mb-4 bg-gray-700 rounded-full"></div>
-                <h3 className="text-xl font-bold">رقم التسجيل</h3>
-                <p>اسم الجهة</p>
-              </CardContent>
-            </Card>
-            {/* كرر الكارت */}
-          </div>
-        </section>
-
-        {/* الشركاء */}
-        <section className="py-16 px-4 max-w-7xl mx-auto bg-black/20">
-          <h2 className="text-3xl font-bold text-center mb-12 text-[#39ff14]">الشركاء الاستراتيجيون</h2>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {/* كروت هنا */}
-            <Card className="bg-black/30 border-[#39ff14]/30 hover:border-[#39ff14] transition cursor-pointer">
-              <CardContent className="p-6 text-center">
-                <div className="w-16 h-16 mx-auto mb-4 bg-gray-700 rounded-full"></div>
-                <h3 className="text-lg font-bold">اسم الشريك</h3>
-              </CardContent>
-            </Card>
-            {/* كرر */}
-          </div>
-        </section>
-
-        {/* قسم جمعية ومضة نور */}
-        <section className="py-16 px-4 max-w-7xl mx-auto grid md:grid-cols-3 gap-12">
-          <div>
-            <h2 className="text-3xl font-bold text-[#39ff14] mb-6">جمعية ومضة نور</h2>
-            <p>كيان رائد يهدف إلى بناء مستقبل مشرق من خلال الخدمات الإنسانية والرعاية المتميزة.</p>
-          </div>
-          <div>
-            <h3 className="text-2xl font-bold text-[#39ff14] mb-4">المجتمع</h3>
-            <div className="space-y-4">
-              <div className="flex items-center gap-3 cursor-pointer hover:text-[#39ff14]">
-                <Users className="h-6 w-6 text-[#39ff14]" /> المجتمع
-              </div>
-              <div className="flex items-center gap-3 cursor-pointer hover:text-[#39ff14]">
-                <BookOpen className="h-6 w-6 text-[#39ff14]" /> المجلة
-              </div>
-              <div className="flex items-center gap-3 cursor-pointer hover:text-[#39ff14]">
-                <HeartHandshake className="h-6 w-6 text-[#39ff14]" /> العضوية
-              </div>
-            </div>
-          </div>
-          <div>
-            <h3 className="text-2xl font-bold text-[#39ff14] mb-4">السياسة والخصوصية</h3>
-            <div className="space-y-4">
-              <div className="flex items-center gap-3 cursor-pointer hover:text-[#39ff14]">
-                <ChevronDown className="h-6 w-6 text-[#39ff14]" /> تحقق من الشهادات
-              </div>
-              <div className="flex items-center gap-3 cursor-pointer hover:text-[#39ff14]">
-                <ChevronDown className="h-6 w-6 text-[#39ff14]" /> الموارد والتقارير
-              </div>
-              <div className="flex items-center gap-3 cursor-pointer hover:text-[#39ff14]">
-                <ChevronDown className="h-6 w-6 text-[#39ff14]" /> أثر الجمعية
-              </div>
-              <div className="flex items-center gap-3 cursor-pointer hover:text-[#39ff14]">
-                <ChevronDown className="h-6 w-6 text-[#39ff14]" /> السياسة والخصوصية
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* الفوتر */}
-        <footer className="py-12 bg-black/50 border-t border-[#39ff14]/30">
-          <div className="max-w-7xl mx-auto px-4 flex flex-col items-center gap-6">
-            <div className="flex gap-8">
-              {/* أيقونات السوشيال */}
-              <a href="#" className="text-[#39ff14] hover:text-white transition">فيسبوك</a>
-              <a href="#" className="text-[#39ff14] hover:text-white transition">X</a>
-              <a href="#" className="text-[#39ff14] hover:text-white transition">إنستغرام</a>
-              <a href="#" className="text-[#39ff14] hover:text-white transition">لينكدإن</a>
-              <a href="#" className="text-[#39ff14] hover:text-white transition">واتساب</a>
-              <a href="#" className="text-[#39ff14] hover:text-white transition">تليجرام</a>
-              <a href="#" className="text-[#39ff14] hover:text-white transition">يوتيوب</a>
-            </div>
-            <p className="text-gray-400">© جمعية ومضة نور 2026 – جميع الحقوق محفوظة</p>
-          </div>
-        </footer>
       </div>
-    </Router>
-  );
-}
+      <div class="h-96 bg-gray-800 rounded-xl"></div>
+    </div>
+  </section>
 
-export default App;
+  <!-- كروت كليكبول -->
+  <section class="py-16 px-4 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+    <div class="bg-black/30 border border-green-glow/30 hover:border-green-glow p-6 rounded-lg text-center cursor-pointer hover:scale-105 transition">
+      <h3 class="text-xl font-bold text-green-glow">المجلة</h3>
+    </div>
+    <div class="bg-black/30 border border-green-glow/30 hover:border-green-glow p-6 rounded-lg text-center cursor-pointer hover:scale-105 transition">
+      <h3 class="text-xl font-bold text-green-glow">المجتمع</h3>
+    </div>
+    <div class="bg-black/30 border border-green-glow/30 hover:border-green-glow p-6 rounded-lg text-center cursor-pointer hover:scale-105 transition">
+      <h3 class="text-xl font-bold text-green-glow">انضم إلينا</h3>
+    </div>
+    <div class="bg-black/30 border border-green-glow/30 hover:border-green-glow p-6 rounded-lg text-center cursor-pointer hover:scale-105 transition">
+      <h3 class="text-xl font-bold text-green-glow">اتصل بنا</h3>
+    </div>
+  </section>
+
+  <!-- التسجيلات الدولية -->
+  <section class="py-16 px-4 max-w-7xl mx-auto bg-black/20">
+    <h2 class="text-3xl font-bold text-center mb-12 text-green-glow">التسجيلات الدولية</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="bg-black/30 border border-green-glow/30 hover:border-green-glow p-6 rounded-lg text-center cursor-pointer hover:scale-105 transition">
+        <div class="w-20 h-20 mx-auto mb-4 bg-gray-700 rounded-full"></div>
+        <h3 class="text-xl font-bold text-green-glow">رقم التسجيل</h3>
+        <p>اسم الجهة</p>
+      </div>
+      <!-- كرر الكارت -->
+    </div>
+  </section>
+
+  <!-- الشركاء -->
+  <section className="py-16 px-4 max-w-7xl mx-auto">
+    <h2 className="text-3xl font-bold text-center mb-12 text-green-glow">الشركاء الاستراتيجيون</h2>
+    <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div className="bg-black/30 border border-green-glow/30 hover:border-green-glow p-6 rounded-lg text-center cursor-pointer hover:scale-105 transition">
+        <div className="w-16 h-16 mx-auto mb-4 bg-gray-700 rounded-full"></div>
+        <h3 className="text-lg font-bold text-green-glow">اسم الشريك</h3>
+      </div>
+      <!-- كرر -->
+    </div>
+  </section>
+
+  <!-- قسم جمعية ومضة نور -->
+  <section className="py-16 px-4 max-w-7xl mx-auto grid md:grid-cols-3 gap-12 bg-black/20">
+    <div>
+      <h2 className="text-3xl font-bold text-green-glow mb-6">جمعية ومضة نور</h2>
+      <p className="text-lg">كيان رائد يهدف إلى بناء مستقبل مشرق من خلال الخدمات الإنسانية والرعاية المتميزة.</p>
+    </div>
+    <div>
+      <h3 className="text-2xl font-bold text-green-glow mb-4">المجتمع</h3>
+      <div className="space-y-4">
+        <div className="flex items-center gap-3 cursor-pointer hover:text-green-glow">
+          <Users className="h-6 w-6 text-green-glow" /> المجتمع
+        </div>
+        <div className="flex items-center gap-3 cursor-pointer hover:text-green-glow">
+          <BookOpen className="h-6 w-6 text-green-glow" /> المجلة
+        </div>
+        <div className="flex items-center gap-3 cursor-pointer hover:text-green-glow">
+          <HeartHandshake className="h-6 w-6 text-green-glow" /> العضوية
+        </div>
+      </div>
+    </div>
+    <div>
+      <h3 className="text-2xl font-bold text-green-glow mb-4">السياسة والخصوصية</h3>
+      <div className="space-y-4">
+        <div className="flex items-center gap-3 cursor-pointer hover:text-green-glow">
+          <ChevronDown className="h-6 w-6 text-green-glow" /> تحقق من الشهادات
+        </div>
+        <div className="flex items-center gap-3 cursor-pointer hover:text-green-glow">
+          <ChevronDown className="h-6 w-6 text-green-glow" /> الموارد والتقارير
+        </div>
+        <div className="flex items-center gap-3 cursor-pointer hover:text-green-glow">
+          <ChevronDown className="h-6 w-6 text-green-glow" /> أثر الجمعية
+        </div>
+        <div className="flex items-center gap-3 cursor-pointer hover:text-green-glow">
+          <ChevronDown className="h-6 w-6 text-green-glow" /> السياسة والخصوصية
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- الفوتر -->
+  <footer className="py-12 bg-black/50 border-t border-green-glow/30">
+    <div className="max-w-7xl mx-auto px-4 flex flex-col items-center gap-6">
+      <div className="flex gap-8">
+        <a href="#" className="text-green-glow hover:text-white transition">فيسبوك</a>
+        <a href="#" className="text-green-glow hover:text-white transition">X</a>
+        <a href="#" className="text-green-glow hover:text-white transition">إنستغرام</a>
+        <a href="#" className="text-green-glow hover:text-white transition">لينكدإن</a>
+        <a href="#" className="text-green-glow hover:text-white transition">واتساب</a>
+        <a href="#" className="text-green-glow hover:text-white transition">تليجرام</a>
+        <a href="#" className="text-green-glow hover:text-white transition">يوتيوب</a>
+      </div>
+      <p className="text-gray-400">© جمعية ومضة نور 2026 – جميع الحقوق محفوظة</p>
+    </div>
+  </footer>
+</body>
+</html>
