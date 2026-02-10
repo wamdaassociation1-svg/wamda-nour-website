@@ -1,111 +1,238 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>جمعية ومضة نور للخدمات والرعاية</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        :root { --glow-clr: #20e3e3; --navy: #0A192F; }
-        body { background-color: var(--navy); color: #f8fafc; font-family: 'Segoe UI', sans-serif; }
-        .glow-effect:hover { box-shadow: 0 0 10px var(--glow-clr); transform: scale(1.05); transition: 0.3s; }
-        /* الكروت مصغرة بنسبة 50% (160px) */
-        .card-mini { width: 160px; min-height: 120px; border: 1px solid rgba(32, 227, 227, 0.2); background: rgba(255, 255, 255, 0.02); font-size: 0.75rem; }
-        /* تعتيم خفيف جداً (شبه شفاف) */
-        .ultra-light-overlay { background: rgba(10, 25, 47, 0.1); }
-        .nouri-bot { filter: drop-shadow(0 0 8px var(--glow-clr)); }
-        nav { transition: all 0.4s ease; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>جمعية ومضة نور</title>
+
+  <!-- Google Font: Tajawal -->
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-dark: #0f172a;
+      --text-light: #f8fafc;
+
+      /* Green Palette */
+      --green-primary: #39ff14; /* CTA only */
+      --green-soft: #2ecc71;    /* cards & icons */
+      --green-muted: #1faa59;  /* borders & hover */
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Tajawal', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      line-height: 1.8;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ================= NAVBAR ================= */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(15, 23, 42, 0.9);
+      backdrop-filter: blur(6px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .brand-text h1 {
+      font-size: 1.4rem;
+      font-weight: 800;
+    }
+
+    .brand-text span {
+      font-size: 0.85rem;
+      color: #94a3b8;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      font-size: 0.9rem;
+    }
+
+    .btn {
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .btn-donate {
+      background: var(--green-primary);
+      color: #000;
+    }
+
+    .btn-login {
+      background: #1e293b;
+      color: #fff;
+    }
+
+    /* ================= HERO ================= */
+    .hero {
+      position: relative;
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+    }
+
+    .hero h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h2 .highlight {
+      color: var(--green-primary);
+    }
+
+    .hero .cta {
+      display: inline-block;
+      margin-top: 1rem;
+      background: var(--green-primary);
+      color: #000;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 700;
+    }
+
+    /* ================= SECTIONS ================= */
+    section {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ================= ABOUT ================= */
+    .about {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .info-cards {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .info-card {
+      border: 1px solid var(--green-soft);
+      padding: 1rem;
+      border-radius: 8px;
+      color: var(--green-soft);
+      flex: 1;
+    }
+
+    /* ================= CLICKABLE CARDS ================= */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      border: 1px solid var(--green-soft);
+      border-radius: 10px;
+      padding: 2rem 1rem;
+      text-align: center;
+      color: var(--green-soft);
+      cursor: pointer;
+    }
+
+    /* ================= REGISTRATIONS & PARTNERS ================= */
+    .fixed-card {
+      width: 320px;
+      height: 160px;
+      border: 1px solid var(--green-muted);
+      border-radius: 10px;
+      padding: 1rem;
+      text-align: center;
+      color: var(--green-soft);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      pointer-events: none; /* 🔒 غير clickable */
+    }
+
+    .fixed-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+    }
+
+    /* ================= FOOTER ================= */
+    footer {
+      border-top: 1px solid #1e293b;
+      padding: 2rem;
+      text-align: center;
+      color: var(--green-soft);
+    }
+  </style>
 </head>
+
 <body>
 
-    <nav id="navbar" class="fixed top-0 w-full z-50 bg-[#0A192F]/80 backdrop-blur-sm border-b border-[#20e3e3]/10 py-2 px-6 flex justify-between items-center">
-        <div class="flex items-center gap-3">
-            <div class="w-10 h-10 bg-[#20e3e3] rounded-full flex items-center justify-center shadow-lg shadow-cyan-500/30 font-bold text-[#0A192F]">WN</div>
-            <div>
-                <h1 class="text-md font-bold text-[#20e3e3] leading-none">جمعية ومضة نور</h1>
-                <p class="text-[9px] text-gray-400 mt-1 uppercase">للخدمات والرعاية</p>
-            </div>
-        </div>
-        <div class="hidden lg:flex gap-4 text-xs">
-            <a href="#" class="text-[#20e3e3]">الرئيسية</a>
-            <a href="#" class="hover:text-[#20e3e3]">من نحن</a>
-            <a href="#" class="hover:text-[#20e3e3]">مؤتمراتنا</a>
-            <a href="#" class="hover:text-[#20e3e3]">مبادراتنا</a>
-            <a href="#" class="hover:text-[#20e3e3]">دوراتنا التدريبية</a>
-            <a href="#" class="hover:text-[#20e3e3]">محاضراتنا التوعوية</a>
-        </div>
-        <div class="flex items-center gap-3 text-xs">
-            <select class="bg-transparent outline-none cursor-pointer border-l pl-2 border-gray-700"><option class="bg-slate-900">AR</option><option class="bg-slate-900">EN</option><option class="bg-slate-900">FR</option><option class="bg-slate-900">ES</option></select>
-            <button class="bg-[#20e3e3] text-[#0A192F] px-4 py-1.5 rounded font-bold glow-effect">تبرع الآن</button>
-            <button class="text-white border border-gray-700 px-4 py-1.5 rounded hover:bg-white/5">دخول</button>
-        </div>
-    </nav>
-
-    <section class="relative h-[80vh] flex items-center justify-center text-center overflow-hidden">
-        <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=2070" class="w-full h-full object-cover">
-            <div class="absolute inset-0 ultra-light-overlay"></div>
-        </div>
-        <div class="relative z-10">
-            <h2 class="text-3xl md:text-5xl font-bold mb-6">نضئ دروب <span class="text-[#20e3e3]">الخير</span> ونصنع أثر مستدام</h2>
-            <button class="bg-[#20e3e3] text-[#0A192F] px-6 py-2 rounded-full text-sm font-bold glow-effect">مبادراتنا الميدانية</button>
-        </div>
-    </section>
-
-    <div class="fixed bottom-6 right-6 z-[100] flex flex-col items-end group">
-        <div class="bg-slate-900/90 p-3 rounded-xl mb-3 max-w-[200px] border border-[#20e3e3]/30 opacity-0 group-hover:opacity-100 transition-opacity text-[10px] leading-relaxed">
-            مرحبا! أنا نوري، مساعد ومضة نور 🌟 أنا هنا لأجيب على أسئلتك. كيف أساعدك اليوم؟
-        </div>
-        <div class="w-14 h-14 bg-[#0A192F] border-2 border-[#20e3e3] rounded-full flex items-center justify-center nouri-bot cursor-pointer">
-            <i class="fas fa-robot text-[#20e3e3] text-2xl"></i>
-        </div>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="brand">
+      <div class="brand-text">
+        <h1>جمعية ومضة نور</h1>
+        <span>للخدمات والرعاية</span>
+      </div>
     </div>
 
-    <section class="py-20 px-10 grid lg:grid-cols-[60%_40%] gap-10 items-start">
-        <div>
-            <h3 class="text-[#20e3e3] text-sm font-bold mb-2">النبذة التعريفية</h3>
-            <h4 class="text-3xl font-bold mb-4">جمعية ومضة نور</h4>
-            <p class="text-gray-400 leading-relaxed text-md mb-8">تأسست جمعية ومضة نور ككيان إنساني يسعى لإحداث تغيير جذري ومستدام في حياة الأفراد. نحن نؤمن بأن الرعاية لا تقتصر على تقديم الخدمة فحسب، بل تمتد لتشمل تمكين المستفيدين وصناعة قادة للمستقبل.</p>
-            <div class="flex flex-wrap gap-4">
-                <div class="card-mini p-4 rounded-lg flex flex-col justify-center">
-                    <h5 class="text-[#20e3e3] font-bold mb-1">رؤيتنا</h5>
-                    <p class="text-[10px] text-gray-500">الريادة العالمية في بناء الإنسان وصناعة الأثر.</p>
-                </div>
-                <div class="card-mini p-4 rounded-lg flex flex-col justify-center">
-                    <h5 class="text-[#20e3e3] font-bold mb-1">رسالتنا</h5>
-                    <p class="text-[10px] text-gray-500">تقديم خدمات نوعية بشفافية لتمكين المحتاجين.</p>
-                </div>
-            </div>
-        </div>
-        <div class="rounded-2xl overflow-hidden border border-white/5 h-64 lg:h-80">
-            <img src="https://images.unsplash.com/photo-1526676037777-05a232554f77?q=80&w=2070" class="w-full h-full object-cover">
-        </div>
-    </section>
-
-    <section class="py-10 flex flex-wrap justify-center gap-4 bg-white/5">
-        <div class="card-mini flex flex-col items-center justify-center rounded-xl glow-effect cursor-pointer"><i class="fas fa-book-open text-[#20e3e3] text-xl mb-2"></i><span>المجلة</span></div>
-        <div class="card-mini flex flex-col items-center justify-center rounded-xl glow-effect cursor-pointer"><i class="fas fa-users text-[#20e3e3] text-xl mb-2"></i><span>المجتمع</span></div>
-        <div class="card-mini flex flex-col items-center justify-center rounded-xl glow-effect cursor-pointer"><i class="fas fa-user-plus text-[#20e3e3] text-xl mb-2"></i><span>انضم إلينا</span></div>
-        <div class="card-mini flex flex-col items-center justify-center rounded-xl glow-effect cursor-pointer"><i class="fas fa-phone text-[#20e3e3] text-xl mb-2"></i><span>اتصل بنا</span></div>
-    </section>
-
-    <section class="py-12 px-10">
-        <h2 class="text-center text-[#20e3e3] text-lg font-bold mb-8">التسجيلات الدولية</h2>
-        <div class="flex flex-wrap justify-center gap-4 opacity-50">
-            <div class="card-mini p-3 text-center rounded"><i class="fas fa-id-card mb-2"></i><p class="text-[9px]">رقم التسجيل: 887236</p></div>
-        </div>
-    </section>
-
-    <section class="py-12 bg-white/5 px-10">
-        <h2 class="text-center text-[#20e3e3] text-lg font-bold mb-8">الشركاء الاستراتيجيون</h2>
-        <div class="flex flex-wrap justify-center gap-4">
-            <div class="card-mini p-3 flex items-center justify-center rounded glow-effect cursor-pointer border-[#20e3e3]">LOGO</div>
-        </div>
-    </section>
-
-    <footer class="bg-black/40 pt-16 pb-6 px-10 border-t border-[#20e3e3]/10">
-        <div class="grid md:grid-cols-3 gap-8 mb-10 text-right text-xs">
-            <div><h4 class="text-[#20e3e3] font-bold mb-4">جمعية ومضة نور</h4><p class="text-gray-500 leading-relaxed">كيان رائد لبناء المستقبل من خلال الرعاية المتميزة.</p></div>
-            <div><h4 class="text-[#20e3e3] font-bold mb-
+    <div class="nav-links">
+      <a href="#">الرئيسية</a>
+      <a href="#">من نحن</a>
+      <a href="#">مؤتمراتنا</a>
+      <a href="#">مبادراتنا</a>
+      <a href="#">دوراتنا</a>
+      <a href="#">محاضراتنا</a>
+      <span>🌐
