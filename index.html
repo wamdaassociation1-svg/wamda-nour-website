@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>جمعية ومضة نور | Wamda Nour</title>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>جمعية ومضة نور | الموقع الرسمي</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     
@@ -13,8 +13,7 @@
             theme: {
                 extend: {
                     colors: {
-                        // الدرجة الفيروزية العميقة والمشعة (Electric Deep Turquoise)
-                        brandCyan: '#00ced1', 
+                        brandCyan: '#00dce8', 
                         brandNavy: '#050a14',
                     }
                 }
@@ -23,182 +22,66 @@
     </script>
     
     <style>
-        body { font-family: 'Tajawal', sans-serif; background-color: #050a14; color: white; margin: 0; scroll-behavior: smooth; }
+        body { font-family: 'Tajawal', sans-serif; background-color: #050a14; color: white; margin: 0; overflow-x: hidden; }
         
-        /* تحديد النيفبار بوضوح مع إشعاع سفلي */
-        nav { border-bottom: 1px solid rgba(0, 206, 209, 0.2); }
-        .nav-active { 
-            background: rgba(5, 10, 20, 0.98); 
-            border-bottom: 2px solid #00ced1; 
-            box-shadow: 0 4px 20px rgba(0, 206, 209, 0.3);
+        /* نيفبار متحرك */
+        nav { transition: all 0.5s ease-in-out; border-bottom: 1px solid rgba(0, 220, 232, 0.05); }
+        .nav-scrolled { 
+            background: rgba(5, 10, 20, 0.98); padding: 12px 0; border-bottom: 2px solid #00dce8;
+            backdrop-filter: blur(10px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
-        
-        /* 📍 كروت النبذة: ارتفاع -15% وطول +10% (ضمن مساحة الـ 60%) */
-        .intro-card { width: 352px; height: 153px; background: rgba(255, 255, 255, 0.03); }
 
-        /* 📍 كروت الخدمات والسوق: ارتفاع -20% */
-        .service-card { width: 300px; height: 144px; }
+        /* الهيرو */
+        .hero-overlay { background: linear-gradient(to bottom, rgba(5, 10, 20, 0.4), rgba(5, 10, 20, 0.8)); }
 
-        /* 📍 التسجيلات والشركاء: ارتفاع -20% */
-        .reg-card { height: 100px; border: 1px solid rgba(0, 206, 209, 0.15); }
+        /* ضبط المقاسات الهندسية للكروت */
+        .intro-card { width: 352px; height: 153px; border: 1px solid rgba(0, 220, 232, 0.2); transition: 0.3s; }
+        .intro-card:hover { border-color: #00dce8; box-shadow: 0 0 20px rgba(0, 220, 232, 0.3); }
 
-        .glow-text { text-shadow: 0 0 15px #00ced1; }
-        .border-glow { border: 1px solid rgba(0, 206, 209, 0.3); transition: 0.4s ease; }
-        .border-glow:hover { border-color: #00ced1; box-shadow: 0 0 20px rgba(0, 206, 209, 0.4); }
-        
-        .hero-overlay { background: rgba(5, 10, 20, 0.55); }
+        .service-card { width: 280px; height: 144px; border: 1px solid rgba(0, 220, 232, 0.2); transition: 0.3s; }
+        .service-card:hover { border-color: #00dce8; box-shadow: 0 0 20px rgba(0, 220, 232, 0.4); }
+
+        .reg-card { height: 100px; border: 1px solid rgba(0, 220, 232, 0.1); }
     </style>
 </head>
 <body>
 
-    <nav id="navbar" class="fixed top-0 w-full z-50 py-5 px-12 flex justify-between items-center transition-all duration-500">
-        <div class="flex items-center gap-4">
-            <div class="w-12 h-12 bg-brandCyan rounded flex items-center justify-center text-brandNavy font-bold text-2xl shadow-[0_0_15px_#00ced1]">WN</div>
+    <nav id="mainNav" class="fixed top-0 w-full z-[1000] py-6 px-12 flex justify-between items-center">
+        <div class="flex items-center gap-4 min-w-[250px]">
+            <div class="w-12 h-12 bg-brandCyan rounded-lg flex items-center justify-center text-brandNavy font-black text-2xl shadow-[0_0_15px_#00dce8]">WN</div>
             <h1 class="text-xl font-bold">جمعية ومضة نور</h1>
         </div>
-        
-        <div class="hidden xl:flex gap-8 text-[13px] font-bold">
+        <div class="hidden xl:flex gap-6 text-[13px] font-bold">
             <a href="#" class="text-brandCyan">الرئيسية</a>
-            <a href="#" class="hover:text-brandCyan transition">من نحن</a>
-            <a href="#" class="hover:text-brandCyan transition">مبادراتنا</a>
-            <a href="#" class="text-brandCyan border-b-2 border-brandCyan pb-1">سوق التمكين</a>
-            <a href="#" class="hover:text-brandCyan transition">دوراتنا</a>
-            <a href="#" class="hover:text-brandCyan transition">اتصل بنا</a>
+            <a href="#">من نحن</a>
+            <a href="#">مؤتمراتنا</a>
+            <a href="#">مبادراتنا</a>
+            <a href="#">دوراتنا التدريبية</a>
+            <a href="#" class="font-black underline decoration-2 underline-offset-4">سوق التمكين</a>
         </div>
-
-        <div class="flex items-center gap-6">
+        <div class="flex items-center gap-6 min-w-[250px] justify-end">
             <div class="relative group cursor-pointer flex items-center gap-2 text-brandCyan">
-                <i class="fas fa-globe"></i>
-                <span class="text-xs">AR</span>
-                <div class="absolute top-full right-0 mt-2 w-28 bg-brandNavy border border-brandCyan/30 hidden group-hover:block rounded shadow-2xl">
-                    <a href="#" class="block px-4 py-2 text-[11px] hover:bg-brandCyan hover:text-brandNavy">English</a>
-                    <a href="#" class="block px-4 py-2 text-[11px] hover:bg-brandCyan hover:text-brandNavy">Français</a>
-                    <a href="#" class="block px-4 py-2 text-[11px] hover:bg-brandCyan hover:text-brandNavy">Español</a>
+                <i class="fas fa-globe text-lg"></i>
+                <span class="text-xs font-bold uppercase">AR</span>
+                <div class="absolute top-full left-0 mt-4 w-32 bg-brandNavy border border-brandCyan/20 rounded-xl hidden group-hover:block overflow-hidden shadow-2xl">
+                    <a href="#" class="block px-4 py-2 text-[11px] hover:bg-brandCyan hover:text-brandNavy">العربية</a>
+                    <a href="#" class="block px-4 py-2 text-[11px] hover:bg-brandCyan hover:text-brandNavy border-t border-white/5">English</a>
+                    <a href="#" class="block px-4 py-2 text-[11px] hover:bg-brandCyan hover:text-brandNavy border-t border-white/5">Français</a>
+                    <a href="#" class="block px-4 py-2 text-[11px] hover:bg-brandCyan hover:text-brandNavy border-t border-white/5">Español</a>
                 </div>
             </div>
-            <button class="bg-brandCyan text-brandNavy px-6 py-2 rounded font-bold text-xs shadow-[0_0_10px_#00ced1]">تبرع الآن</button>
+            <a href="#" class="text-xs font-bold hover:text-brandCyan transition">الدخول</a>
+            <a href="#" class="bg-brandCyan text-brandNavy px-6 py-2 rounded-lg font-bold text-xs shadow-lg">اتصل بنا</a>
         </div>
     </nav>
 
-    <section class="relative h-screen flex items-center justify-center text-center overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?q=80&w=2070" class="absolute inset-0 w-full h-full object-cover">
+    <section class="relative h-[85vh] flex items-center justify-center text-center">
+        <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=2070" class="absolute inset-0 w-full h-full object-cover">
         <div class="absolute inset-0 hero-overlay"></div>
-        <div class="relative z-10 w-full px-4">
-            <h2 class="text-2xl md:text-3xl font-bold tracking-tight glow-text text-white">
-                نضئ دروب الخير ونصنع أثر مستدام
-            </h2>
-            <button class="mt-10 bg-brandCyan text-brandNavy px-12 py-3 rounded-full font-bold hover:scale-105 transition shadow-lg">مبادراتنا الميدانية</button>
+        <div class="relative z-10 w-full px-6">
+            <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-white mb-10">نضئ دروب <span class="text-brandCyan text-shadow-glow">الخير</span> ونصنع أثر مستدام</h2>
+            <button class="bg-brandCyan text-brandNavy px-12 py-3.5 rounded-full font-black text-lg shadow-2xl hover:scale-105 transition">مبادراتنا الميدانية</button>
         </div>
     </section>
 
-    <section class="py-24 px-10 md:px-20 grid lg:grid-cols-[60%_40%] gap-12 items-center">
-        <div class="flex flex-col gap-10">
-            <h3 class="text-brandCyan text-2xl font-bold italic">النبذة التعريفية</h3>
-            <p class="text-gray-400 italic leading-relaxed text-lg max-w-xl">تأسست جمعية ومضة نور ككيان إنساني يسعى لإحداث تغيير جذري ومستدام في حياة الأفراد الفئات الأكثر احتياجاً.</p>
-            
-            <div class="flex flex-wrap gap-8 justify-start">
-                <div class="intro-card border-glow rounded-2xl p-6 flex flex-col justify-center">
-                    <h5 class="text-brandCyan font-bold mb-2 italic">رؤيتنا</h5>
-                    <p class="text-[11px] text-gray-500">الريادة والتميز العالمي في تقديم الخدمات الرعوية والتنموية المستدامة.</p>
-                </div>
-                <div class="intro-card border-glow rounded-2xl p-6 flex flex-col justify-center">
-                    <h5 class="text-brandCyan font-bold mb-2 italic">رسالتنا</h5>
-                    <p class="text-[11px] text-gray-500">تمكين المجتمعات عبر برامج نوعية ورعاية شاملة تضمن كرامة الإنسان.</p>
-                </div>
-            </div>
-        </div>
-        <div class="flex justify-end pr-10"> <div class="rounded-[40px] overflow-hidden border border-brandCyan/20 w-full h-[450px] shadow-2xl">
-                <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=2070" class="w-full h-full object-cover grayscale">
-            </div>
-        </div>
-    </section>
-
-    <section class="py-16 flex flex-wrap justify-center gap-6 px-10 bg-black/10">
-        <div class="service-card border-glow rounded-3xl flex flex-col items-center justify-center cursor-pointer group">
-            <i class="fas fa-store text-brandCyan text-2xl mb-4 group-hover:scale-110 transition"></i>
-            <span class="font-bold text-xs uppercase">سوق التمكين</span>
-        </div>
-        <div class="service-card border-glow rounded-3xl flex flex-col items-center justify-center cursor-pointer group">
-            <i class="fas fa-book-open text-brandCyan text-2xl mb-4 group-hover:scale-110 transition"></i>
-            <span class="font-bold text-xs uppercase">المجلة</span>
-        </div>
-        <div class="service-card border-glow rounded-3xl flex flex-col items-center justify-center cursor-pointer group">
-            <i class="fas fa-users text-brandCyan text-2xl mb-4 group-hover:scale-110 transition"></i>
-            <span class="font-bold text-xs uppercase">المجتمع</span>
-        </div>
-        <div class="service-card border-glow rounded-3xl flex flex-col items-center justify-center cursor-pointer group">
-            <i class="fas fa-phone-alt text-brandCyan text-2xl mb-4 group-hover:scale-110 transition"></i>
-            <span class="font-bold text-xs uppercase">اتصل بنا</span>
-        </div>
-    </section>
-
-    <section class="py-20 text-center px-10 md:px-24">
-        <h2 class="text-brandCyan text-2xl font-bold mb-12 italic">التسجيلات الدولية</h2>
-        <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
-            <div class="reg-card border-glow rounded-xl flex items-center justify-center bg-white/5 text-[10px] italic">REGISTRATION: WN-HQ-2026-01</div>
-            <div class="reg-card border-glow rounded-xl flex items-center justify-center bg-white/5 text-[10px] italic">REGISTRATION: WN-HQ-2026-02</div>
-            <div class="reg-card border-glow rounded-xl flex items-center justify-center bg-white/5 text-[10px] italic">REGISTRATION: WN-HQ-2026-03</div>
-            <div class="reg-card border-glow rounded-xl flex items-center justify-center bg-white/5 text-[10px] italic">REGISTRATION: WN-HQ-2026-04</div>
-            <div class="reg-card border-glow rounded-xl flex items-center justify-center bg-white/5 text-[10px] italic">REGISTRATION: WN-HQ-2026-05</div>
-            <div class="reg-card border-glow rounded-xl flex items-center justify-center bg-white/5 text-[10px] italic">REGISTRATION: WN-HQ-2026-06</div>
-            <div class="reg-card border-glow rounded-xl flex items-center justify-center bg-white/5 text-[10px] italic">REGISTRATION: WN-HQ-2026-07</div>
-            <div class="reg-card border-glow rounded-xl flex items-center justify-center bg-white/5 text-[10px] italic">REGISTRATION: WN-HQ-2026-08</div>
-            <div class="reg-card border-glow rounded-xl flex items-center justify-center bg-white/5 text-[10px] italic">REGISTRATION: WN-HQ-2026-09</div>
-            <div class="reg-card border-glow rounded-xl flex items-center justify-center bg-white/5 text-[10px] italic">REGISTRATION: WN-HQ-2026-10</div>
-        </div>
-    </section>
-
-    <section class="py-20 bg-brandCyan/5 text-center px-10 md:px-24">
-        <h2 class="text-brandCyan text-2xl font-bold mb-12 italic text-left pr-4">الشركاء الاستراتيجيون</h2>
-        <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
-            <div class="reg-card border-glow rounded-xl flex items-center justify-center bg-brandNavy font-bold text-gray-600 italic">LOGO PARTNER</div>
-            <div class="reg-card border-glow rounded-xl flex items-center justify-center bg-brandNavy font-bold text-gray-600 italic">LOGO PARTNER</div>
-        </div>
-    </section>
-
-    <section class="py-24 px-10 md:px-24 border-t border-brandCyan/10">
-        <div class="grid md:grid-cols-3 gap-16">
-            <div class="flex flex-col gap-6">
-                <h4 class="text-brandCyan font-bold text-xl italic underline decoration-brandCyan underline-offset-8">جمعية ومضة نور</h4>
-                <p class="text-gray-500 text-sm leading-relaxed">كيان رائد يهدف إلى بناء مستقبل مشرق من خلال الخدمات الإنسانية والرعاية المتميزة.</p>
-            </div>
-            <div class="flex flex-col gap-6">
-                <h4 class="text-brandCyan font-bold text-xl italic">المجتمع</h4>
-                <div class="flex flex-col gap-3 text-gray-400 text-sm">
-                    <p class="hover:text-brandCyan cursor-pointer">المجتمع</p>
-                    <p class="hover:text-brandCyan cursor-pointer">المجلة</p>
-                    <p class="hover:text-brandCyan cursor-pointer underline">العضوية</p>
-                </div>
-            </div>
-            <div class="flex flex-col gap-6 text-right">
-                <h4 class="text-brandCyan font-bold text-xl italic">السياسة والخصوصية</h4>
-                <div class="flex flex-col gap-3 text-gray-400 text-sm">
-                    <p class="hover:text-brandCyan cursor-pointer">تحقق من الشهادات</p>
-                    <p class="hover:text-brandCyan cursor-pointer">الموارد والتقارير</p>
-                    <p class="text-brandCyan border-r-2 border-brandCyan pr-3 font-bold">سياسة الخصوصية</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-black py-12 px-10 text-center border-t border-brandCyan/20">
-        <div class="flex justify-center gap-10 mb-8 text-brandCyan text-2xl">
-            <i class="fab fa-facebook-f hover:scale-125 transition"></i>
-            <i class="fab fa-x-twitter hover:scale-125 transition"></i>
-            <i class="fab fa-instagram hover:scale-125 transition"></i>
-            <i class="fab fa-linkedin-in hover:scale-125 transition"></i>
-            <i class="fab fa-whatsapp hover:scale-125 transition"></i>
-            <i class="fab fa-youtube hover:scale-125 transition"></i>
-        </div>
-        <p class="text-[10px] text-gray-700 tracking-[5px] uppercase italic">© جميع الحقوق محفوظة لجمعية ومضة نور 2026</p>
-    </footer>
-
-    <script>
-        window.onscroll = function() {
-            const nav = document.getElementById('navbar');
-            if (window.scrollY > 50) nav.classList.add('nav-active');
-            else nav.classList.remove('nav-active');
-        };
-    </script>
-</body>
-</html>
+    <section class="py-24 px-12 md:px-24 grid lg:grid-cols-[60%_40%] gap-12 items-center">
