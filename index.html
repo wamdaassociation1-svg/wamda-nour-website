@@ -24,7 +24,7 @@
     <style>
         body { font-family: 'Tajawal', sans-serif; background-color: #050a14; color: white; margin: 0; overflow-x: hidden; }
         
-        /* 1. النيفبار المعتمد */
+        /* النيفبار المعتمد والمحدد */
         .glass-nav {
             background: rgba(5, 10, 20, 0.9);
             backdrop-filter: blur(12px);
@@ -32,10 +32,9 @@
             transition: all 0.4s ease;
         }
 
-        /* 2. الهيرو مع التعتيم */
         .hero-overlay { background: linear-gradient(to bottom, rgba(5, 10, 20, 0.4), rgba(5, 10, 20, 0.8)); }
 
-        /* 3. كروت النبذة: زيادة عرض 10% وتقليل ارتفاع 15% */
+        /* المقاسات الهندسية الدقيقة للكروت */
         .intro-card { 
             width: 352px; 
             height: 153px; 
@@ -45,7 +44,6 @@
         }
         .intro-card:hover { border-color: #00dce8; box-shadow: 0 0 20px rgba(0, 220, 232, 0.3); }
 
-        /* 4. كروت الخدمات: تقليل ارتفاع 20% */
         .service-card { 
             width: 280px; 
             height: 144px; 
@@ -54,17 +52,19 @@
         }
         .service-card:hover { border-color: #00dce8; box-shadow: 0 0 20px rgba(0, 220, 232, 0.4); }
 
-        /* 5. كروت التسجيلات والشركاء: ارتفاع منخفض */
         .reg-card { 
             height: 90px; 
             border: 1px solid rgba(0, 220, 232, 0.1); 
             background: rgba(255, 255, 255, 0.02);
         }
+
+        .btn-glow { box-shadow: 0 0 15px rgba(0, 220, 232, 0.3); }
+        .btn-glow:hover { box-shadow: 0 0 25px rgba(0, 220, 232, 0.5); transform: scale(1.05); }
     </style>
 </head>
 <body>
 
-    <nav class="fixed top-0 w-full z-[1000] glass-nav py-4 px-12 flex justify-between items-center">
+    <nav class="fixed top-0 w-full z-[1000] glass-nav py-4 px-8 md:px-12 flex justify-between items-center">
         <div class="flex items-center gap-4 min-w-[250px]">
             <div class="w-12 h-12 bg-brandCyan rounded-lg flex items-center justify-center text-brandNavy font-black text-2xl shadow-[0_0_15px_#00dce8]">WN</div>
             <h1 class="text-xl font-bold">جمعية ومضة نور</h1>
@@ -80,19 +80,14 @@
             <a href="#" class="font-black text-white hover:text-brandCyan border-b border-brandCyan">سوق التمكين</a>
         </div>
 
-        <div class="flex items-center gap-5 min-w-[250px] justify-end">
-            <div class="relative group cursor-pointer flex items-center gap-2 text-brandCyan">
+        <div class="flex items-center gap-4 min-w-[280px] justify-end">
+            <div class="relative group cursor-pointer flex items-center gap-2 text-brandCyan ml-2">
                 <i class="fas fa-globe"></i>
                 <span class="text-xs font-bold uppercase">AR</span>
-                <div class="absolute top-full left-0 mt-4 w-32 bg-brandNavy border border-brandCyan/20 rounded-xl hidden group-hover:block overflow-hidden shadow-2xl">
-                    <a href="#" class="block px-4 py-2 text-[11px] hover:bg-brandCyan hover:text-brandNavy">العربية</a>
-                    <a href="#" class="block px-4 py-2 text-[11px] hover:bg-brandCyan hover:text-brandNavy">English</a>
-                    <a href="#" class="block px-4 py-2 text-[11px] hover:bg-brandCyan hover:text-brandNavy">Français</a>
-                    <a href="#" class="block px-4 py-2 text-[11px] hover:bg-brandCyan hover:text-brandNavy">Español</a>
-                </div>
             </div>
-            <a href="#" class="text-xs font-bold hover:text-brandCyan">الدخول</a>
-            <a href="#" class="bg-brandCyan text-brandNavy px-6 py-2 rounded-lg font-black text-xs shadow-lg">اتصل بنا</a>
+            <a href="#" class="text-xs font-bold hover:text-brandCyan transition mr-2">الدخول</a>
+            <button class="bg-white/10 border border-brandCyan/50 text-brandCyan px-5 py-2 rounded-lg font-bold text-xs btn-glow transition">تبرع الآن</button>
+            <button class="bg-brandCyan text-brandNavy px-6 py-2 rounded-lg font-black text-xs btn-glow transition">اتصل بنا</button>
         </div>
     </nav>
 
@@ -101,109 +96,11 @@
         <div class="absolute inset-0 hero-overlay"></div>
         <div class="relative z-10 w-full px-6">
             <h2 class="text-2xl md:text-3xl font-black text-white mb-10">نضئ دروب <span class="text-brandCyan">الخير</span> ونصنع أثر مستدام</h2>
-            <button class="bg-brandCyan text-brandNavy px-12 py-3.5 rounded-full font-black text-lg shadow-2xl hover:scale-105 transition">مبادراتنا الميدانية</button>
+            <button class="bg-brandCyan text-brandNavy px-12 py-3.5 rounded-full font-black text-lg btn-glow transition">مبادراتنا الميدانية</button>
         </div>
     </section>
 
     <section class="py-28 px-12 md:px-24 grid lg:grid-cols-[60%_40%] gap-16 items-center">
         <div class="space-y-10">
             <h3 class="text-brandCyan text-2xl font-bold italic underline decoration-brandCyan underline-offset-8">النبذة التعريفية</h3>
-            <p class="text-gray-400 italic leading-loose text-lg max-w-xl">تأسست جمعية ومضة نور ككيان إنساني يسعى لإحداث تغيير جذري ومستدام في حياة الأفراد الفئات الأكثر احتياجاً.</p>
-            <div class="flex flex-wrap gap-8">
-                <div class="intro-card rounded-2xl p-6 flex flex-col justify-center">
-                    <h5 class="text-brandCyan font-bold mb-3 italic">رؤيتنا</h5>
-                    <p class="text-xs text-gray-500">الريادة والتميز العالمي في تقديم الخدمات الرعوية والتنموية.</p>
-                </div>
-                <div class="intro-card rounded-2xl p-6 flex flex-col justify-center">
-                    <h5 class="text-brandCyan font-bold mb-3 italic">رسالتنا</h5>
-                    <p class="text-xs text-gray-500">تمكين المجتمعات عبر برامج نوعية ورعاية شاملة تضمن كرامة الإنسان.</p>
-                </div>
-            </div>
-        </div>
-        <div class="flex justify-end pr-10">
-            <div class="rounded-[45px] overflow-hidden border-2 border-brandCyan/10 w-full h-[450px]">
-                <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=2070" class="w-full h-full object-cover grayscale">
-            </div>
-        </div>
-    </section>
-
-    <section class="py-20 flex flex-wrap justify-center gap-8 px-10 bg-black/30">
-        <div class="service-card rounded-3xl flex flex-col items-center justify-center cursor-pointer group">
-            <i class="fas fa-store text-brandCyan text-3xl mb-4 transition group-hover:scale-110"></i>
-            <span class="font-bold text-xs uppercase">سوق التمكين</span>
-        </div>
-        <div class="service-card rounded-3xl flex flex-col items-center justify-center cursor-pointer group">
-            <i class="fas fa-book-open text-brandCyan text-3xl mb-4 transition group-hover:scale-110"></i>
-            <span class="font-bold text-xs uppercase">المجلة</span>
-        </div>
-        <div class="service-card rounded-3xl flex flex-col items-center justify-center cursor-pointer group">
-            <i class="fas fa-users text-brandCyan text-3xl mb-4 transition group-hover:scale-110"></i>
-            <span class="font-bold text-xs uppercase">المجتمع</span>
-        </div>
-        <div class="service-card rounded-3xl flex flex-col items-center justify-center cursor-pointer group">
-            <i class="fas fa-envelope text-brandCyan text-3xl mb-4 transition group-hover:scale-110"></i>
-            <span class="font-bold text-xs uppercase">اتصل بنا</span>
-        </div>
-    </section>
-
-    <section class="py-24 text-center px-12 md:px-24">
-        <h2 class="text-brandCyan text-2xl font-bold mb-12 italic">التسجيلات الدولية</h2>
-        <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
-            <div class="reg-card rounded-xl flex items-center justify-center text-[10px] italic">REGISTRATION: WN-HQ-2026-01</div>
-            <div class="reg-card rounded-xl flex items-center justify-center text-[10px] italic">REGISTRATION: WN-HQ-2026-02</div>
-            <div class="reg-card rounded-xl flex items-center justify-center text-[10px] italic">REGISTRATION: WN-HQ-2026-03</div>
-            <div class="reg-card rounded-xl flex items-center justify-center text-[10px] italic">REGISTRATION: WN-HQ-2026-04</div>
-            <div class="reg-card rounded-xl flex items-center justify-center text-[10px] italic">REGISTRATION: WN-HQ-2026-05</div>
-            <div class="reg-card rounded-xl flex items-center justify-center text-[10px] italic">REGISTRATION: WN-HQ-2026-06</div>
-            <div class="reg-card rounded-xl flex items-center justify-center text-[10px] italic">REGISTRATION: WN-HQ-2026-07</div>
-            <div class="reg-card rounded-xl flex items-center justify-center text-[10px] italic">REGISTRATION: WN-HQ-2026-08</div>
-            <div class="reg-card rounded-xl flex items-center justify-center text-[10px] italic">REGISTRATION: WN-HQ-2026-09</div>
-            <div class="reg-card rounded-xl flex items-center justify-center text-[10px] italic">REGISTRATION: WN-HQ-2026-10</div>
-        </div>
-    </section>
-
-    <section class="py-24 bg-brandCyan/5 text-center px-12 md:px-24">
-        <h2 class="text-brandCyan text-2xl font-bold mb-12 italic">الشركاء الاستراتيجيون</h2>
-        <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
-            <div class="reg-card rounded-xl flex items-center justify-center bg-brandNavy font-bold text-gray-600">LOGO PARTNER</div>
-            <div class="reg-card rounded-xl flex items-center justify-center bg-brandNavy font-bold text-gray-600">LOGO PARTNER</div>
-        </div>
-    </section>
-
-    <section class="py-28 px-12 md:px-24 border-t border-brandCyan/10">
-        <div class="grid md:grid-cols-3 gap-16">
-            <div class="space-y-6">
-                <h4 class="text-brandCyan font-bold text-xl italic underline decoration-brandCyan underline-offset-8">جمعية ومضة نور</h4>
-                <p class="text-gray-500 text-sm leading-relaxed italic">كيان رائد يهدف إلى بناء مستقبل مشرق من خلال الخدمات الإنسانية والرعاية المتميزة.</p>
-            </div>
-            <div class="space-y-6">
-                <h4 class="text-brandCyan font-bold text-xl italic">المجتمع</h4>
-                <div class="flex flex-col gap-4 text-gray-400 text-[13px]">
-                    <p class="hover:text-brandCyan cursor-pointer transition">المجتمع</p>
-                    <p class="hover:text-brandCyan cursor-pointer transition">المجلة</p>
-                    <p class="hover:text-brandCyan cursor-pointer transition underline">العضوية</p>
-                </div>
-            </div>
-            <div class="space-y-6">
-                <h4 class="text-brandCyan font-bold text-xl italic">السياسة والخصوصية</h4>
-                <div class="flex flex-col gap-4 text-gray-400 text-[13px]">
-                    <p class="hover:text-brandCyan cursor-pointer transition">تحقق من الشهادات</p>
-                    <p class="hover:text-brandCyan cursor-pointer transition">الموارد والتقارير</p>
-                    <p class="text-brandCyan border-r-2 border-brandCyan pr-3 font-bold">سياسة الخصوصية</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-black py-12 text-center border-t border-brandCyan/20">
-        <div class="flex justify-center gap-10 mb-8 text-brandCyan text-2xl">
-            <i class="fab fa-facebook-f hover:scale-125 transition pointer cursor-pointer"></i>
-            <i class="fab fa-instagram hover:scale-125 transition pointer cursor-pointer"></i>
-            <i class="fab fa-whatsapp hover:scale-125 transition pointer cursor-pointer"></i>
-            <i class="fab fa-youtube hover:scale-125 transition pointer cursor-pointer"></i>
-        </div>
-        <p class="text-[10px] text-gray-700 tracking-[5px] uppercase font-bold italic">© جميع الحقوق محفوظة لجمعية ومضة نور 2026</p>
-    </footer>
-
-</body>
-</html>
+            <p class="text-gray-400 italic leading-loose text-lg max-w-xl">تأسست جمعية ومضة نور
