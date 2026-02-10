@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>جمعية ومضة نور | سوق التمكين</title>
+    <title>جمعية ومضة نور | الرسمية</title>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
@@ -12,147 +12,188 @@
         tailwind.config = {
             theme: {
                 extend: {
-                    colors: {
-                        brandGreen: '#39ff14',
-                        brandNavy: '#0f172a',
-                    },
-                    fontFamily: { tajawal: ['Tajawal', 'sans-serif'], }
+                    colors: { brandGreen: '#39ff14', brandNavy: '#0f172a' },
+                    fontFamily: { tajawal: ['Tajawal', 'sans-serif'] }
                 }
             }
         }
     </script>
     
     <style>
-        body { font-family: 'Tajawal', sans-serif; background-color: #0f172a; color: white; scroll-behavior: smooth; }
-        .glow-border { border: 1px solid rgba(57, 255, 20, 0.2); transition: 0.4s; }
-        .glow-border:hover { border-color: #39ff14; box-shadow: 0 0 20px rgba(57, 255, 20, 0.3); }
-        /* توحيد مقاس الكروت بدقة */
-        .card-uniform { width: 320px; min-height: 420px; display: flex; flex-direction: column; overflow: hidden; }
-        .nouri-bot { filter: drop-shadow(0 0 10px #39ff14); animation: pulse 2.5s infinite; }
-        @keyframes pulse { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-        .overlay-light { background: rgba(15, 23, 42, 0.3); }
+        body { font-family: 'Tajawal', sans-serif; background-color: #0f172a; color: white; scroll-behavior: smooth; overflow-x: hidden; }
+        
+        /* النافبار المتحرك */
+        nav { transition: all 0.4s ease-in-out; }
+        .nav-scrolled { background: rgba(15, 23, 42, 0.98); padding: 10px 40px; border-bottom: 2px solid #39ff14; box-shadow: 0 4px 20px rgba(57, 255, 20, 0.1); }
+
+        /* الهيرو والخلفية */
+        .hero-video-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: -1; }
+        .hero-video { width: 100%; height: 100%; object-fit: cover; }
+        .light-overlay { position: absolute; inset: 0; background: rgba(15, 23, 42, 0.35); z-index: 1; }
+
+        /* الكروت الموحدة */
+        .card-custom { width: 320px; min-height: 200px; border: 1px solid rgba(57, 255, 20, 0.2); transition: 0.3s; background: rgba(255, 255, 255, 0.02); }
+        .card-custom:hover { border-color: #39ff14; box-shadow: 0 0 20px rgba(57, 255, 20, 0.4); transform: translateY(-5px); }
+
+        .glow-text { text-shadow: 0 0 15px #39ff14; color: #39ff14; }
+        .nouri-bot { filter: drop-shadow(0 0 12px #39ff14); animation: float 3s ease-in-out infinite; }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
     </style>
 </head>
-<body class="overflow-x-hidden">
+<body>
 
-    <nav class="fixed top-0 w-full z-50 bg-[#0f172a]/95 backdrop-blur-lg border-b border-brandGreen/10 py-3 px-8 flex justify-between items-center transition-all">
+    <nav id="mainNav" class="fixed top-0 w-full z-50 py-6 px-12 flex justify-between items-center">
         <div class="flex items-center gap-4">
-            <div class="w-12 h-12 bg-brandGreen rounded-lg flex items-center justify-center text-brandNavy font-bold text-2xl shadow-lg shadow-brandGreen/20">WN</div>
+            <div class="w-14 h-14 bg-brandGreen rounded-xl flex items-center justify-center text-brandNavy font-bold text-3xl shadow-[0_0_20px_#39ff14]">WN</div>
             <div>
-                <h1 class="text-xl font-bold leading-none text-white">جمعية ومضة نور</h1>
-                <p class="text-[10px] text-gray-400 mt-1 uppercase tracking-widest">للخدمات والرعاية</p>
+                <h1 class="text-2xl font-bold leading-none">جمعية ومضة نور</h1>
+                <p class="text-[11px] text-gray-300 mt-1 font-light italic">للخدمات والرعاية</p>
             </div>
         </div>
-        <div class="hidden xl:flex gap-8 text-sm font-medium">
-            <a href="#" class="text-brandGreen border-b border-brandGreen pb-1">الرئيسية</a>
+        <div class="hidden xl:flex gap-8 text-sm font-bold">
+            <a href="#" class="text-brandGreen underline decoration-2 underline-offset-8">الرئيسية</a>
             <a href="#" class="hover:text-brandGreen transition">من نحن</a>
             <a href="#" class="hover:text-brandGreen transition">مؤتمراتنا</a>
             <a href="#" class="hover:text-brandGreen transition">مبادراتنا</a>
-            <a href="#souq" class="text-brandGreen font-bold animate-pulse">سوق التمكين</a>
             <a href="#" class="hover:text-brandGreen transition">دوراتنا التدريبية</a>
+            <a href="#" class="hover:text-brandGreen transition">محاضراتنا التوعوية</a>
         </div>
-        <div class="flex items-center gap-4">
-            <button class="bg-brandGreen text-brandNavy px-6 py-2 rounded-md font-bold text-sm hover:scale-105 transition shadow-lg shadow-brandGreen/20">تبرع الآن</button>
-            <button class="bg-brandNavy border border-brandGreen/30 text-white px-5 py-2 rounded-md text-sm hover:bg-brandGreen/10 transition">دخول الأعضاء</button>
+        <div class="flex items-center gap-6">
+            <div class="text-brandGreen cursor-pointer"><i class="fas fa-language text-xl"></i></div>
+            <button class="bg-brandGreen text-brandNavy px-8 py-2.5 rounded-lg font-bold text-sm shadow-lg shadow-brandGreen/30 hover:brightness-110 transition">تبرع الآن</button>
+            <button class="border border-brandGreen/40 text-white px-6 py-2.5 rounded-lg text-sm hover:bg-brandGreen/5">دخول</button>
         </div>
     </nav>
 
-    <header class="relative h-screen flex items-center justify-center text-center px-4">
-        <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1521791136064-7986c2923216?q=80&w=2069" class="w-full h-full object-cover">
-            <div class="absolute inset-0 overlay-light"></div>
+    <section class="relative h-screen flex items-center justify-center text-center">
+        <div class="hero-video-container">
+            <video autoplay muted loop class="hero-video">
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-holding-hands-of-a-child-41585-large.mp4" type="video/mp4">
+            </video>
+            <div class="light-overlay"></div>
         </div>
-        <div class="relative z-10">
-            <h2 class="text-4xl md:text-6xl font-bold mb-8 leading-tight">نضئ دروب <span class="text-brandGreen drop-shadow-sm">الخير</span> <br> ونصنع أثر مستدام</h2>
-            <button class="bg-brandGreen text-brandNavy px-10 py-4 rounded-md text-lg font-bold hover:brightness-110 transition shadow-xl shadow-brandGreen/30">مبادراتنا الميدانية</button>
+        <div class="relative z-10 px-4">
+            <h2 class="text-5xl md:text-7xl font-bold mb-10 leading-tight">نضئ دروب <span class="glow-text">الخير</span> <br> ونصنع أثر مستدام</h2>
+            <button class="bg-brandGreen text-brandNavy px-12 py-4 rounded-full text-lg font-bold hover:scale-110 transition shadow-2xl shadow-brandGreen/40">مبادراتنا الميدانية</button>
         </div>
-    </header>
+    </section>
 
-    <div class="fixed bottom-10 right-10 z-[100] group flex flex-col items-end">
-        <div class="bg-slate-900 p-5 rounded-2xl mb-4 max-w-xs border border-brandGreen/30 opacity-0 group-hover:opacity-100 transition-all duration-500 shadow-2xl translate-y-4 group-hover:translate-y-0">
-            <p class="text-sm leading-relaxed">مرحبا! أنا نوري، مساعد ومضة نور 🌟 أنا هنا لأجيب على أسئلتك عن الجمعية، التبرع، أو كيف تدعم سوق التمكين. 😊</p>
+    <div class="fixed bottom-12 right-12 z-[100] group flex flex-col items-end">
+        <div class="bg-slate-900 border-2 border-brandGreen/30 p-6 rounded-2xl mb-5 max-w-sm opacity-0 group-hover:opacity-100 transition-all duration-500 shadow-2xl">
+            <p class="text-sm leading-relaxed italic text-gray-200">
+                "مرحبا! أنا نوري، مساعد ومضة نور 🌟 أنا هنا علشان أجاوب على كل أسئلتك... قولي إزاي أقدر أساعدك؟ 😊"
+            </p>
         </div>
-        <div class="w-20 h-20 bg-brandNavy border-2 border-brandGreen rounded-full flex items-center justify-center nouri-bot cursor-pointer shadow-brandGreen/40 shadow-2xl">
-            <i class="fas fa-robot text-brandGreen text-4xl"></i>
+        <div class="w-24 h-24 bg-brandNavy border-4 border-brandGreen rounded-full flex items-center justify-center nouri-bot cursor-pointer shadow-[0_0_30px_rgba(57,255,20,0.5)]">
+            <i class="fas fa-robot text-brandGreen text-5xl"></i>
         </div>
     </div>
 
-    <section class="py-24 px-10 md:px-24 grid lg:grid-cols-[60%_40%] gap-16 items-center">
-        <div>
-            <h3 class="text-brandGreen text-3xl font-bold mb-2">جمعية ومضة نور</h3>
-            <h4 class="text-gray-500 text-lg mb-8 italic">النبذة التعريفية</h4>
-            <p class="text-gray-300 leading-loose text-lg mb-12">تأسست جمعية ومضة نور ككيان إنساني يسعى لإحداث تغيير جذري ومستدام في حياة الأفراد. نحن نؤمن بأن الرعاية لا تقتصر على تقديم الخدمة فحسب، بل تمتد لتشمل تمكين المستفيدين وصناعة قادة للمستقبل.</p>
-            <div class="flex flex-wrap gap-8">
-                <div class="card-uniform glow-border rounded-2xl p-8 bg-white/5 min-h-0 h-auto">
-                    <h5 class="text-brandGreen font-bold mb-4 text-xl italic">رؤيتنا</h5>
-                    <p class="text-sm text-gray-400">الريادة والتميز العالمي في تقديم الخدمات الرعوية والتنموية المستدامة.</p>
-                </div>
-                <div class="card-uniform glow-border rounded-2xl p-8 bg-white/5 min-h-0 h-auto">
-                    <h5 class="text-brandGreen font-bold mb-4 text-xl italic">رسالتنا</h5>
-                    <p class="text-sm text-gray-400">تمكين المجتمعات عبر برامج نوعية ورعاية شاملة تضمن كرامة الإنسان.</p>
-                </div>
-            </div>
-        </div>
-        <div class="h-[500px] rounded-3xl overflow-hidden border border-brandGreen/20 shadow-2xl shadow-brandGreen/5">
-            <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=2070" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-1000">
-        </div>
-    </section>
-
-    <section class="py-16 flex flex-wrap justify-center gap-8 bg-black/40 px-6">
-        <div class="w-[320px] h-[180px] glow-border rounded-2xl flex flex-col items-center justify-center cursor-pointer hover:bg-brandGreen/10 transition group">
-            <i class="fas fa-book-open text-brandGreen text-4xl mb-4 group-hover:scale-110 transition"></i>
-            <span class="text-xl font-bold uppercase tracking-widest">المجلة</span>
-        </div>
-        <div class="w-[320px] h-[180px] glow-border rounded-2xl flex flex-col items-center justify-center cursor-pointer hover:bg-brandGreen/10 transition group">
-            <i class="fas fa-users text-brandGreen text-4xl mb-4 group-hover:scale-110 transition"></i>
-            <span class="text-xl font-bold uppercase tracking-widest">المجتمع</span>
-        </div>
-        <div class="w-[320px] h-[180px] glow-border rounded-2xl flex flex-col items-center justify-center cursor-pointer hover:bg-brandGreen/10 transition group">
-            <i class="fas fa-user-plus text-brandGreen text-4xl mb-4 group-hover:scale-110 transition"></i>
-            <span class="text-xl font-bold uppercase tracking-widest">انضم إلينا</span>
-        </div>
-        <div class="w-[320px] h-[180px] glow-border rounded-2xl flex flex-col items-center justify-center cursor-pointer hover:bg-brandGreen/10 transition group">
-            <i class="fas fa-phone-alt text-brandGreen text-4xl mb-4 group-hover:scale-110 transition"></i>
-            <span class="text-xl font-bold uppercase tracking-widest">اتصل بنا</span>
-        </div>
-    </section>
-
-    <section id="souq" class="py-24 px-10 md:px-24 bg-[#0f172a] border-y border-brandGreen/5">
-        <div class="text-center mb-16">
-            <h2 class="text-brandGreen text-4xl font-bold mb-4">سوق التمكين</h2>
-            <p class="text-xl italic text-gray-300 mb-6">نتاج أيدي متدربينا</p>
-            <p class="max-w-3xl mx-auto text-gray-400 leading-relaxed">
-                "منتجات يدوية ومهنية نفذها مستفيدو برامج التمكين بجمعية ومضة نور، وتتولى الجمعية مسؤولية التسويق والدعم بالكامل."
+    <section class="py-32 px-10 md:px-24 grid lg:grid-cols-[60%_40%] gap-20 items-center">
+        <div class="text-right">
+            <h3 class="text-brandGreen text-4xl font-bold mb-4">جمعية ومضة نور</h3>
+            <h4 class="text-gray-500 text-xl mb-10 italic">النبذة التعريفية</h4>
+            <p class="text-gray-300 leading-[2.2] text-xl mb-14 italic font-light">
+                تأسست جمعية ومضة نور ككيان إنساني يسعى لإحداث تغيير جذري ومستدام في حياة الأفراد. نحن نؤمن بأن الرعاية لا تقتصر على تقديم الخدمة فحسب، بل تمتد لتشمل تمكين المستفيدين وصناعة قادة للمستقبل.
             </p>
+            <div class="flex flex-wrap gap-10">
+                <div class="card-custom rounded-3xl p-8">
+                    <h5 class="text-brandGreen font-bold text-2xl mb-4 italic italic">رؤيتنا</h5>
+                    <p class="text-gray-400 leading-relaxed">الريادة والتميز العالمي في تقديم الخدمات الرعوية والتنموية المستدامة.</p>
+                </div>
+                <div class="card-custom rounded-3xl p-8">
+                    <h5 class="text-brandGreen font-bold text-2xl mb-4 italic italic">رسالتنا</h5>
+                    <p class="text-gray-400 leading-relaxed">تمكين المجتمعات عبر برامج نوعية ورعاية شاملة تضمن كرامة الإنسان.</p>
+                </div>
+            </div>
         </div>
+        <div class="rounded-[40px] overflow-hidden border-2 border-brandGreen/20 shadow-2xl">
+            <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?q=80&w=2062" class="w-full h-[600px] object-cover grayscale hover:grayscale-0 transition duration-1000">
+        </div>
+    </section>
 
+    <section class="py-20 flex flex-wrap justify-center gap-8 bg-black/30 px-6 border-y border-brandGreen/5">
+        <div class="card-custom h-56 rounded-[30px] flex flex-col items-center justify-center cursor-pointer"><i class="fas fa-book-open text-brandGreen text-4xl mb-5"></i><span class="text-xl font-bold tracking-widest">المجلة</span></div>
+        <div class="card-custom h-56 rounded-[30px] flex flex-col items-center justify-center cursor-pointer"><i class="fas fa-users text-brandGreen text-4xl mb-5"></i><span class="text-xl font-bold tracking-widest">المجتمع</span></div>
+        <div class="card-custom h-56 rounded-[30px] flex flex-col items-center justify-center cursor-pointer"><i class="fas fa-user-plus text-brandGreen text-4xl mb-5"></i><span class="text-xl font-bold tracking-widest">انضم إلينا</span></div>
+        <div class="card-custom h-56 rounded-[30px] flex flex-col items-center justify-center cursor-pointer"><i class="fas fa-phone-alt text-brandGreen text-4xl mb-5"></i><span class="text-xl font-bold tracking-widest">اتصل بنا</span></div>
+    </section>
+
+    <section class="py-24 text-center">
+        <h2 class="text-brandGreen text-4xl font-bold mb-4 italic">سوق التمكين</h2>
+        <p class="text-gray-400 mb-16 italic text-lg">"نتاج أيدي متدربينا - استثمار في الإنسان"</p>
         <div class="flex flex-wrap justify-center gap-10">
-            <div class="card-uniform glow-border rounded-3xl bg-slate-900/50 group">
-                <div class="h-64 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1578749553858-20ad443e67c8?q=80&w=2070" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
-                </div>
-                <div class="p-6 text-center flex-grow flex flex-col justify-between">
-                    <h5 class="text-xl font-bold text-white mb-4">حرفة النسيج التراثي</h5>
-                    <button class="bg-brandGreen/10 border border-brandGreen text-brandGreen py-3 px-6 rounded-xl font-bold hover:bg-brandGreen hover:text-brandNavy transition">
-                        ادعم هذه الحرفة
-                    </button>
+            <div class="card-custom rounded-[35px] overflow-hidden">
+                <div class="h-48 bg-gray-800"><img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=2070" class="w-full h-full object-cover"></div>
+                <div class="p-6">
+                    <p class="font-bold mb-6 text-xl">حرف يدوية تراثية</p>
+                    <button class="border-2 border-brandGreen text-brandGreen px-8 py-2 rounded-full font-bold hover:bg-brandGreen hover:text-brandNavy transition">ادعم هذه الحرفة</button>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="card-uniform glow-border rounded-3xl bg-slate-900/50 group">
-                <div class="h-64 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
-                </div>
-                <div class="p-6 text-center flex-grow flex flex-col justify-between">
-                    <h5 class="text-xl font-bold text-white mb-4">أعمال النجارة الفنية</h5>
-                    <button class="bg-brandGreen/10 border border-brandGreen text-brandGreen py-3 px-6 rounded-xl font-bold hover:bg-brandGreen hover:text-brandNavy transition">
-                        ادعم هذه الحرفة
-                    </button>
+    <section class="py-20 text-center border-t border-brandGreen/5">
+        <h2 class="text-brandGreen text-2xl font-bold mb-12">التسجيلات الدولية</h2>
+        <div class="flex flex-wrap justify-center gap-8 opacity-50">
+            <div class="card-custom rounded-2xl flex items-center justify-center p-10"><p class="font-bold italic">REGISTRATION No: 8872-WN</p></div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-brandGreen/5 text-center">
+        <h2 class="text-brandGreen text-3xl font-bold mb-16 underline decoration-wavy underline-offset-8">الشركاء الاستراتيجيون</h2>
+        <div class="flex flex-wrap justify-center gap-12">
+            <div class="card-custom h-40 rounded-2xl flex items-center justify-center p-6 italic text-gray-500 font-bold">LOGO PARTNER</div>
+        </div>
+    </section>
+
+    <section class="py-32 px-10 md:px-24">
+        <div class="grid md:grid-cols-3 gap-20">
+            <div>
+                <h2 class="text-brandGreen text-3xl font-bold mb-6 italic">جمعية ومضة نور</h2>
+                <p class="text-gray-500 leading-[2] italic">كيان رائد يهدف إلى بناء مستقبل مشرق من خلال الخدمات الإنسانية والرعاية المتميزة وتطبيق أعلى معايير الحوكمة.</p>
+            </div>
+            <div>
+                <h4 class="text-brandGreen font-bold text-2xl mb-8 italic">المجتمع</h4>
+                <div class="space-y-5 text-gray-400">
+                    <p class="hover:text-brandGreen cursor-pointer transition">المجتمع</p>
+                    <p class="hover:text-brandGreen cursor-pointer transition">المجلة</p>
+                    <p class="hover:text-brandGreen cursor-pointer transition underline decoration-brandGreen">العضوية</p>
                 </div>
             </div>
-
-            <div class="card-uniform glow-border rounded-3xl bg-slate-900/50 group">
-                <div class="h-64 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1511130523524-703a4441b42a?q=80&w=2070" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+            <div>
+                <h4 class="text-brandGreen font-bold text-2xl mb-8 italic text-left">السياسة والخصوصية</h4>
+                <div class="space-y-5 text-gray-400">
+                    <p class="hover:text-brandGreen cursor-pointer transition">تحقق من الشهادات</p>
+                    <p class="hover:text-brandGreen cursor-pointer transition">الموارد والتقارير</p>
+                    <p class="hover:text-brandGreen cursor-pointer font-bold border-r-4 border-brandGreen pr-4">السياسة والخصوصية</p>
                 </div>
-                <div class="p-6 text-center flex-grow flex flex-col justify-between">
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black py-16 px-10 text-center border-t border-brandGreen/20">
+        <div class="flex justify-center gap-12 mb-12 text-brandGreen text-3xl">
+            <i class="fab fa-facebook hover:scale-125 transition"></i>
+            <i class="fab fa-x-twitter hover:scale-125 transition"></i>
+            <i class="fab fa-instagram hover:scale-125 transition"></i>
+            <i class="fab fa-linkedin hover:scale-125 transition"></i>
+            <i class="fab fa-whatsapp hover:scale-125 transition"></i>
+            <i class="fab fa-youtube hover:scale-125 transition"></i>
+        </div>
+        <p class="text-xs text-gray-700 tracking-[5px] uppercase">© جمعية ومضة نور 2026 – نضئ دروب الخير</p>
+    </footer>
+
+    <script>
+        // تأثير النافبار عند السكرول
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('mainNav');
+            if (window.scrollY > 100) {
+                nav.classList.add('nav-scrolled');
+            } else {
+                nav.classList.remove('nav-scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
