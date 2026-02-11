@@ -56,6 +56,19 @@
             border: 1px solid rgba(0, 220, 232, 0.1);
             background: rgba(255, 255, 255, 0.02);
         }
+   /* الكود السحري لمنع اختفاء القائمة المنسدلة */
+.group:hover .absolute { 
+    display: block !important; 
+}
+.group .absolute::before {
+    content: "";
+    position: absolute;
+    top: -30px; /* يسد الفجوة mt-4 */
+    right: 0;
+    left: 0;
+    height: 30px;
+    background: transparent;
+}
     </style>
 </head>
 <body>
@@ -74,23 +87,22 @@
             <a href="#" class="font-black text-white hover:text-brandCyan border-b border-brandCyan">سوق التمكين</a>
         </div>
         <div class="flex items-center gap-5 min-w-[350px] justify-end">
-            <div class="relative group cursor-pointer flex items-center gap-2 text-brandCyan">
-                <i class="fas fa-globe"></i>
-                <span class="text-xs font-bold uppercase">AR</span>
-                <div class="absolute top-full left-0 mt-4 w-32 bg-brandNavy border border-brandCyan/20 rounded-xl hidden group-hover:block overflow-hidden shadow-2xl">
-                    <a href="#" class="block px-4 py-2 text-[11px] hover:bg-brandCyan hover:text-brandNavy">العربية</a>
-                    <a href="#" class="block px-4 py-2 text-[11px] hover:bg-brandCyan hover:text-brandNavy">English</a>
-                    <a href="#" class="block px-4 py-2 text-[11px] hover:bg-brandCyan hover:text-brandNavy">Français</a>
-                    <a href="#" class="block px-4 py-2 text-[11px] hover:bg-brandCyan hover:text-brandNavy">Español</a>
-                </div>
+<div class="relative group cursor-pointer flex items-center gap-2 text-brandCyan">
+            <i class="fas fa-globe"></i>
+            <span class="text-xs font-bold uppercase">AR</span>
+            <div class="absolute top-full left-0 mt-2 w-32 bg-brandNavy border border-brandCyan/20 rounded-xl hidden group-hover:block overflow-hidden shadow-2xl">
+                <a href="javascript:void(0)" onclick="changeLanguage('ar')" class="block px-4 py-2 text-[11px] hover:bg-brandCyan hover:text-brandNavy transition">العربية</a>
+                <a href="javascript:void(0)" onclick="changeLanguage('en')" class="block px-4 py-2 text-[11px] hover:bg-brandCyan hover:text-brandNavy transition">English</a>
+                <a href="javascript:void(0)" onclick="changeLanguage('fr')" class="block px-4 py-2 text-[11px] hover:bg-brandCyan hover:text-brandNavy transition">Français</a>
+                <a href="javascript:void(0)" onclick="changeLanguage('es')" class="block px-4 py-2 text-[11px] hover:bg-brandCyan hover:text-brandNavy transition">Español</a>
             </div>
-            <a href="#" id="nav-login" data-i18n="nav-login" class="text-xs font-bold hover:text-brandCyan text-white">الدخول</a>
-            <a href="#" id="nav-donate" data-i18n="nav-donate" class="border border-brandCyan text-brandCyan px-5 py-2 rounded-lg font-bold text-xs hover:bg-brandCyan hover:text-brandNavy transition duration-300">تبرع الآن</a>
-            <a href="#" id="nav-contact" data-i18n="nav-contact" class="bg-brandCyan text-brandNavy px-6 py-2 rounded-lg font-black text-xs shadow-lg">اتصل بنا</a>
         </div>
-    </nav>
-    <section class="relative h-screen flex items-center justify-center text-center">
-        <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=2070" class="absolute inset-0 w-full h-full object-cover">
+
+        <a href="#" id="nav-login" data-i18n="nav-login" class="text-xs font-bold hover:text-brandCyan text-white">الدخول</a>
+        <a href="#" id="nav-donate" data-i18n="nav-donate" class="border border-brandCyan text-brandCyan px-5 py-2 rounded-lg font-bold text-xs hover:bg-brandCyan hover:text-brandNavy transition duration-300">تبرع الآن</a>
+        <a href="#" id="nav-contact" data-i18n="nav-contact" class="bg-brandCyan text-brandNavy px-6 py-2 rounded-lg font-black text-xs shadow-lg">اتصل بنا</a>
+</div>
+         </nav>
         <div class="absolute inset-0 hero-overlay"></div>
         <div class="relative z-10 w-full px-6">
             <h2 class="text-2xl md:text-3xl font-black text-white mb-10">نضئ دروب <span class="text-brandCyan">الخير</span> ونصنع أثر مستدام</h2>
