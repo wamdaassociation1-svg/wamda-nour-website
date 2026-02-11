@@ -23,9 +23,16 @@
     
     <style>
         body { font-family: 'Tajawal', sans-serif; background-color: #050a14; color: white; margin: 0; overflow-x: hidden; }
-        .glass-nav { background: rgba(5, 10, 20, 0.9); backdrop-filter: blur(12px); border-bottom: 1.5px solid rgba(0, 220, 232, 0.3); }
         
-        /* الكروت الموحدة حسب مقاسات الرئيسية */
+        /* النيفبار المعتمد بالكامل */
+        .glass-nav {
+            background: rgba(5, 10, 20, 0.9);
+            backdrop-filter: blur(12px);
+            border-bottom: 1.5px solid rgba(0, 220, 232, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        /* الكروت الموحدة 352x153 */
         .intro-card {
             width: 352px;
             height: 153px;
@@ -54,16 +61,25 @@
         </div>
         <div class="hidden xl:flex gap-6 text-[13px] font-bold">
             <a href="index.html" class="hover:text-brandCyan transition">الرئيسية</a>
-            <a href="about.html" class="text-brandCyan">من نحن</a>
+            <a href="about.html" class="text-brandCyan italic">من نحن</a>
+            <a href="#" class="hover:text-brandCyan transition">مؤتمراتنا</a>
             <a href="#" class="hover:text-brandCyan transition">مبادراتنا</a>
-            <a href="#" class="hover:text-brandCyan transition">اتصل بنا</a>
+            <a href="#" class="hover:text-brandCyan transition">دوراتنا التدريبية</a>
+            <a href="#" class="hover:text-brandCyan transition">محاضراتنا التوعوية</a>
+            <a href="#" class="font-black text-white hover:text-brandCyan border-b border-brandCyan">سوق التمكين</a>
         </div>
         <div class="flex items-center gap-5 min-w-[350px] justify-end">
-            <a href="#" class="bg-brandCyan text-brandNavy px-6 py-2 rounded-lg font-black text-xs">تبرع الآن</a>
+            <div class="relative group cursor-pointer flex items-center gap-2 text-brandCyan">
+                <i class="fas fa-globe"></i>
+                <span class="text-xs font-bold uppercase">AR</span>
+            </div>
+            <a href="#" class="text-xs font-bold hover:text-brandCyan">الدخول</a>
+            <a href="#" class="border border-brandCyan text-brandCyan px-5 py-2 rounded-lg font-bold text-xs hover:bg-brandCyan hover:text-brandNavy transition">تبرع الآن</a>
+            <a href="#" class="bg-brandCyan text-brandNavy px-6 py-2 rounded-lg font-black text-xs shadow-lg">اتصل بنا</a>
         </div>
     </nav>
 
-    <section class="py-28 pt-44 px-12 md:px-24 grid lg:grid-cols-[60%_40%] gap-16 items-center">
+    <section class="py-28 pt-48 px-12 md:px-24 grid lg:grid-cols-[60%_40%] gap-16 items-center">
         <div class="space-y-10">
             <h3 class="text-brandCyan text-2xl font-bold italic underline decoration-brandCyan underline-offset-8">هوية ومضة نور</h3>
             
@@ -95,12 +111,17 @@
 
         <div class="flex justify-end pr-10">
             <div class="rounded-[45px] overflow-hidden border-2 border-brandCyan/10 w-full h-[450px]">
-                <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=2070" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700">
+                <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=2070" class="w-full h-full object-cover grayscale">
             </div>
         </div>
     </section>
 
-    <footer class="bg-black py-12 text-center border-t border-brandCyan/20 mt-10">
+    <footer class="bg-black py-12 text-center border-t border-brandCyan/20">
+        <div class="flex justify-center gap-10 mb-8 text-brandCyan text-2xl">
+            <i class="fab fa-facebook-f hover:scale-125 transition cursor-pointer"></i>
+            <i class="fab fa-instagram hover:scale-125 transition cursor-pointer"></i>
+            <i class="fab fa-whatsapp hover:scale-125 transition cursor-pointer"></i>
+        </div>
         <p class="text-[10px] text-gray-700 tracking-[5px] uppercase font-bold italic">© جميع الحقوق محفوظة لجمعية ومضة نور 2026</p>
     </footer>
 </body>
