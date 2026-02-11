@@ -56,6 +56,23 @@
             border: 1px solid rgba(0, 220, 232, 0.1);
             background: rgba(255, 255, 255, 0.02);
         }
+
+        /* ──────────────────────────────────────── */
+        /* الإضافة الوحيدة: تحسين استقرار القائمة المنسدلة للغات */
+        .group:hover .absolute {
+            display: block !important;
+        }
+        .group .absolute::before {
+            content: "";
+            position: absolute;
+            top: -30px;
+            right: 0;
+            left: 0;
+            height: 30px;
+            background: transparent;
+        }
+        /* ──────────────────────────────────────── */
+
     </style>
 </head>
 <body>
