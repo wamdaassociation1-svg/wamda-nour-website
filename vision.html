@@ -1,44 +1,111 @@
-<nav class="fixed top-0 w-full z-[1000] glass-nav py-4 px-12 flex justify-between items-center">
-    <!-- سهم الرجوع (Back button) -->
-    <button onclick="history.back()" class="text-brandCyan hover:text-white transition text-3xl mr-6">
-        <i class="fas fa-arrow-right"></i>
-    </button>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رؤيتنا | جمعية ومضة نور</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandCyan: '#00dce8',
+                        brandNavy: '#050a14',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body { font-family: 'Tajawal', sans-serif; background-color: #050a14; color: white; margin: 0; overflow-x: hidden; }
+        
+        /* النيفبار المعتمد - مثبت بالكامل */
+        .glass-nav {
+            background: rgba(5, 10, 20, 0.9);
+            backdrop-filter: blur(12px);
+            border-bottom: 1.5px solid rgba(0, 220, 232, 0.3);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
 
-    <div class="flex items-center gap-4 min-w-[250px]">
-        <div class="w-12 h-12 bg-brandCyan rounded-lg flex items-center justify-center text-brandNavy font-black text-2xl shadow-[0_0_15px_#00dce8]">WN</div>
-        <h1 class="text-xl font-bold">جمعية ومضة نور</h1>
-    </div>
-
-    <div class="hidden xl:flex gap-6 text-[13px] font-bold">
-        <a href="index.html" class="hover:text-brandCyan transition">الرئيسية</a>
-        <a href="about.html" class="text-brandCyan">من نحن</a>
-        <a href="#" class="hover:text-brandCyan transition">مؤتمراتنا</a>
-        <a href="#" class="hover:text-brandCyan transition">مبادراتنا</a>
-        <a href="#" class="hover:text-brandCyan transition">دوراتنا التدريبية</a>
-        <a href="#" class="hover:text-brandCyan transition">محاضراتنا التوعوية</a>
-        <a href="#" class="font-black text-white hover:text-brandCyan border-b border-brandCyan">سوق التمكين</a>
-    </div>
-
-    <div class="flex items-center gap-5 min-w-[350px] justify-end">
-        <!-- قائمة اللغات -->
-        <div class="relative group cursor-pointer flex items-center gap-2 text-brandCyan">
-            <i class="fas fa-globe text-xl"></i>
-            <span class="text-xs font-bold uppercase">AR</span>
-            <div class="absolute top-full left-0 mt-4 w-32 bg-brandNavy border border-brandCyan/20 rounded-xl hidden group-hover:block overflow-hidden shadow-2xl">
-                <a href="#" class="block px-4 py-2 text-[11px] hover:bg-brandCyan hover:text-brandNavy">العربية</a>
-                <a href="#" class="block px-4 py-2 text-[11px] hover:bg-brandCyan hover:text-brandNavy">English</a>
-                <a href="#" class="block px-4 py-2 text-[11px] hover:bg-brandCyan hover:text-brandNavy">Français</a>
-                <a href="#" class="block px-4 py-2 text-[11px] hover:bg-brandCyan hover:text-brandNavy">Español</a>
-            </div>
+        .back-btn {
+            display: inline-flex;
+            items-center: center;
+            gap: 12px;
+            color: #00dce8;
+            font-weight: 900;
+            transition: 0.4s;
+            margin-bottom: 40px;
+            cursor: pointer;
+        }
+        .back-btn:hover { transform: translateX(10px); color: white; }
+    </style>
+</head>
+<body>
+    <nav class="glass-nav py-4 px-12 flex justify-between items-center">
+        <div class="flex items-center gap-4 min-w-[250px]">
+            <div class="w-12 h-12 bg-brandCyan rounded-lg flex items-center justify-center text-brandNavy font-black text-2xl shadow-[0_0_15px_#00dce8]">WN</div>
+            <h1 class="text-xl font-bold">جمعية ومضة نور</h1>
+        </div>
+        
+        <div class="hidden xl:flex gap-6 text-[13px] font-bold">
+            <a href="index.html" class="hover:text-brandCyan transition">الرئيسية</a>
+            <a href="about.html" class="text-brandCyan">من نحن</a>
+            <a href="#" class="hover:text-brandCyan transition">مؤتمراتنا</a>
+            <a href="#" class="hover:text-brandCyan transition">مبادراتنا</a>
+            <a href="#" class="hover:text-brandCyan transition">دوراتنا التدريبية</a>
+            <a href="#" class="hover:text-brandCyan transition">محاضراتنا التوعوية</a>
+            <a href="#" class="font-black text-white hover:text-brandCyan border-b border-brandCyan">سوق التمكين</a>
         </div>
 
-        <!-- دخول الأعضاء -->
-        <a href="#" class="text-xs font-bold hover:text-brandCyan transition">دخول الأعضاء</a>
+        <div class="flex items-center gap-5 min-w-[350px] justify-end">
+            <div class="relative group cursor-pointer flex items-center gap-2 text-brandCyan">
+                <i class="fas fa-globe"></i>
+                <span class="text-xs font-bold uppercase">AR</span>
+                <div class="absolute top-full left-0 mt-4 w-32 bg-brandNavy border border-brandCyan/20 rounded-xl hidden group-hover:block overflow-hidden shadow-2xl">
+                    <a href="#" class="block px-4 py-2 text-[11px] hover:bg-brandCyan hover:text-brandNavy">العربية</a>
+                    <a href="#" class="block px-4 py-2 text-[11px] hover:bg-brandCyan hover:text-brandNavy">English</a>
+                    <a href="#" class="block px-4 py-2 text-[11px] hover:bg-brandCyan hover:text-brandNavy">Français</a>
+                    <a href="#" class="block px-4 py-2 text-[11px] hover:bg-brandCyan hover:text-brandNavy">Español</a>
+                </div>
+            </div>
+            <a href="#" class="text-xs font-bold hover:text-brandCyan">الدخول</a>
+            <a href="#" class="border border-brandCyan text-brandCyan px-5 py-2 rounded-lg font-bold text-xs hover:bg-brandCyan hover:text-brandNavy transition duration-300">تبرع الآن</a>
+            <a href="#" class="bg-brandCyan text-brandNavy px-6 py-2 rounded-lg font-black text-xs shadow-lg">اتصل بنا</a>
+        </div>
+    </nav>
 
-        <!-- تبرع الآن -->
-        <a href="#" class="border border-brandCyan text-brandCyan px-5 py-2 rounded-lg font-bold text-xs hover:bg-brandCyan hover:text-brandNavy transition duration-300">تبرع الآن</a>
+    <main class="pt-48 pb-24 px-12 md:px-24 max-w-6xl mx-auto">
+        <a href="about.html" class="back-btn italic">
+            <i class="fas fa-arrow-right text-2xl"></i>
+            <span class="text-lg">العودة لصفحة من نحن</span>
+        </a>
 
-        <!-- اتصل بنا -->
-        <a href="#" class="bg-brandCyan text-brandNavy px-6 py-2 rounded-lg font-black text-xs shadow-lg">اتصل بنا</a>
-    </div>
-</nav>
+        <div class="grid lg:grid-cols-[1fr_400px] gap-16 items-start">
+            <div class="space-y-10">
+                <h2 class="text-5xl font-black italic text-white underline decoration-brandCyan underline-offset-[15px]">رؤيتنا</h2>
+                <div class="bg-white/5 border-r-4 border-brandCyan p-10 rounded-2xl shadow-2xl">
+                    <p class="text-2xl leading-relaxed text-gray-200 italic">
+                        تطمح جمعية ومضة نور أن تكون الرائدة في صناعة الأثر الإنساني المستدام، من خلال تقديم حلول مبتكرة تمكن الأفراد وتنمي المجتمعات. نحن لا نكتفي بتقديم المساعدة، بل نسعى لبناء الإنسان ليكون قادراً على العطاء والاعتماد على الذات.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="rounded-[40px] overflow-hidden border border-brandCyan/20 h-[400px]">
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2070" class="w-full h-full object-cover grayscale opacity-50">
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-black py-12 text-center border-t border-brandCyan/20 mt-10">
+        <p class="text-[10px] text-gray-700 tracking-[5px] uppercase font-bold italic">© جميع الحقوق محفوظة لجمعية ومضة نور 2026</p>
+    </footer>
+</body>
+</html>
