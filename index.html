@@ -55,18 +55,18 @@
             height: 90px;
             border: 1px solid rgba(0, 220, 232, 0.1);
             background: rgba(255, 255, 255, 0.02);
-        }
-   .group:hover .absolute { display: block !important; }
-        .group .absolute::before {
-            content: "";
-            position: absolute;
-            top: -20px;
-            right: 0;
-            left: 0;
-            height: 20px;
-            background: transparent;
-        }
-    </style>
+         /* هذا الكود يمنع اختفاء القائمة المنسدلة للغات */
+.group:hover .absolute { display: block !important; }
+.group .absolute::before {
+    content: "";
+    position: absolute;
+    top: -30px;
+    right: 0;
+    left: 0;
+    height: 30px;
+    background: transparent;
+}
+            </style>
 </head>
 <body>
     <nav class="fixed top-0 w-full z-[1000] glass-nav py-4 px-12 flex justify-between items-center">
@@ -95,8 +95,8 @@
                 </div>
             </div>
             <a href="#" id="nav-login" data-i18n="nav-login" class="text-xs font-bold hover:text-brandCyan text-white">الدخول</a>
-            <a href="#" id="nav-donate" data-i18n="nav-donate" class="border border-brandCyan text-brandCyan px-5 py-2 rounded-lg font-bold text-xs hover:bg-brandCyan hover:text-brandNavy transition duration-300">تبرع الآن</a>
-            <a href="#" id="nav-contact" data-i18n="nav-contact" class="bg-brandCyan text-brandNavy px-6 py-2 rounded-lg font-black text-xs shadow-lg">اتصل بنا</a>d-lg font-black text-xs shadow-lg">اتصل بنا</a>
+<a href="#" id="nav-donate" data-i18n="nav-donate" class="border border-brandCyan text-brandCyan px-5 py-2 rounded-lg font-bold text-xs hover:bg-brandCyan hover:text-brandNavy transition duration-300">تبرع الآن</a>
+<a href="#" id="nav-contact" data-i18n="nav-contact" class="bg-brandCyan text-brandNavy px-6 py-2 rounded-lg font-black text-xs shadow-lg">اتصل بنا</a>
         </div>
     </nav>
 
