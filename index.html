@@ -24,7 +24,6 @@
     <style>
         body { font-family: 'Tajawal', sans-serif; background-color: #050a14; color: white; margin: 0; overflow-x: hidden; }
       
-        /* حركة النيفبار الناعمة */
         @keyframes floatNav {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(3px); }
@@ -34,8 +33,7 @@
             background: rgba(5, 10, 20, 0.9);
             backdrop-filter: blur(12px);
             border-bottom: 1.5px solid rgba(0, 220, 232, 0.3);
-            transition: all 0.4s ease;
-            animation: floatNav 4s ease-in-out infinite; /* إضافة الحركة المطلوبة */
+            animation: floatNav 4s ease-in-out infinite;
         }
 
         .hero-overlay { background: linear-gradient(to bottom, rgba(5, 10, 20, 0.4), rgba(5, 10, 20, 0.8)); }
@@ -111,7 +109,7 @@
         </div> 
     </nav>
 
-    <section class="relative h-screen flex items-center justify-center text-center overflow-hidden">
+    <section class="relative h-screen flex items-center justify-center text-center">
         <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=2070" class="absolute inset-0 w-full h-full object-cover">
         <div class="absolute inset-0 hero-overlay"></div>
         <div class="relative z-10 w-full px-6">
@@ -137,4 +135,61 @@
         </div>
         <div class="flex justify-end pr-10">
             <div class="rounded-[45px] overflow-hidden border-2 border-brandCyan/10 w-full h-[450px]">
-                <img src="
+                <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=2070" class="w-full h-full object-cover grayscale">
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 flex flex-wrap justify-center gap-8 px-10 bg-black/30">
+        <div class="service-card rounded-3xl flex flex-col items-center justify-center cursor-pointer group">
+            <i class="fas fa-store text-brandCyan text-3xl mb-4 transition group-hover:scale-110"></i>
+            <span class="font-bold text-xs uppercase">سوق التمكين</span>
+        </div>
+        <div class="service-card rounded-3xl flex flex-col items-center justify-center cursor-pointer group">
+            <i class="fas fa-book-open text-brandCyan text-3xl mb-4 transition group-hover:scale-110"></i>
+            <span class="font-bold text-xs uppercase">المجلة</span>
+        </div>
+        <div class="service-card rounded-3xl flex flex-col items-center justify-center cursor-pointer group">
+            <i class="fas fa-users text-brandCyan text-3xl mb-4 transition group-hover:scale-110"></i>
+            <span class="font-bold text-xs uppercase">المجتمع</span>
+        </div>
+        <div class="service-card rounded-3xl flex flex-col items-center justify-center cursor-pointer group">
+            <i class="fas fa-envelope text-brandCyan text-3xl mb-4 transition group-hover:scale-110"></i>
+            <span class="font-bold text-xs uppercase">اتصل بنا</span>
+        </div>
+    </section>
+
+    <section class="py-24 text-center px-12 md:px-24">
+        <h2 class="text-brandCyan text-2xl font-bold mb-12 italic">التسجيلات الدولية</h2>
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+            <div class="reg-card rounded-xl flex items-center justify-center text-[10px] italic">REGISTRATION: WN-HQ-2026-01</div>
+            <div class="reg-card rounded-xl flex items-center justify-center text-[10px] italic">REGISTRATION: WN-HQ-2026-02</div>
+            <div class="reg-card rounded-xl flex items-center justify-center text-[10px] italic">REGISTRATION: WN-HQ-2026-03</div>
+            <div class="reg-card rounded-xl flex items-center justify-center text-[10px] italic">REGISTRATION: WN-HQ-2026-04</div>
+            <div class="reg-card rounded-xl flex items-center justify-center text-[10px] italic">REGISTRATION: WN-HQ-2026-05</div>
+        </div>
+    </section>
+
+    <footer class="bg-black py-12 text-center border-t border-brandCyan/20">
+        <div class="flex justify-center gap-6 text-2xl text-brandCyan mb-6">
+            <a href="#" class="hover:text-white transition"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="hover:text-white transition"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" class="hover:text-white transition"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" class="hover:text-white transition"><i class="fab fa-telegram"></i></a>
+            <a href="#" class="hover:text-white transition"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p class="text-[10px] text-gray-700 tracking-[5px] uppercase font-bold italic">© جميع الحقوق محفوظة لجمعية ومضة نور 2026</p>
+    </footer>
+
+    <div id="noor-ai-assistant" class="fixed bottom-8 right-8 z-[9999] cursor-pointer group">
+        <div class="absolute bottom-20 right-0 bg-white text-brandNavy p-4 rounded-2xl w-64 shadow-2xl opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none text-sm font-bold border-2 border-brandCyan italic">
+            مرحبا! أنا نوري، مساعد ومضة نور 🌟 قولي... إزاي أقدر أساعدك النهاردة؟ 😊
+        </div>
+        <div class="w-16 h-16 bg-brandNavy border-2 border-brandCyan rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(0,220,232,0.4)] hover:scale-110 transition-transform duration-300">
+            <i class="fas fa-robot text-brandCyan text-3xl"></i>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
