@@ -1,36 +1,34 @@
+// مصفوفة الترجمة المركزية للموقع (4 لغات)
 const translations = {
     'ar': {
-        'nav-contact': "اتصل بنا",
-        'nav-donate': "تبرع الآن",
         'nav-login': "الدخول",
-        'noor-msg': "مرحبا! أنا نوري، مساعد ومضة نور 🌟 قولي... إزاي أقدر أساعدك النهاردة؟ 😊",
-        'footer-rights': "© جميع الحقوق محفوظة لجمعية ومضة نور 2026"
+        'nav-donate': "تبرع الآن",
+        'nav-contact': "اتصل بنا",
+        'noor-msg': "مرحبا! أنا نوري، مساعد ومضة نور 🌟 قولي... إزاي أقدر أساعدك النهاردة؟ 😊"
     },
     'en': {
-        'nav-contact': "Contact Us",
-        'nav-donate': "Donate Now",
         'nav-login': "Login",
-        'noor-msg': "Hello! I am Noor, Wamda Nour assistant 🌟 How can I help you today? 😊",
-        'footer-rights': "© All rights reserved to Wamda Nour Association 2026"
+        'nav-donate': "Donate Now",
+        'nav-contact': "Contact Us",
+        'noor-msg': "Hello! I am Noor, Wamda Nour assistant 🌟 How can I help you today? 😊"
     },
     'es': {
-        'nav-contact': "Contáctenos",
-        'nav-donate': "Donar Ahora",
         'nav-login': "Acceso",
-        'noor-msg': "¡Hola! Soy Noor 🌟 ¿Cómo puedo ayudarte hoy? 😊",
-        'footer-rights': "© Todos los derechos reservados a la Asociación Wamda Nour 2026"
+        'nav-donate': "Donar Ahora",
+        'nav-contact': "Contáctenos",
+        'noor-msg': "¡Hola! Soy Noor, asistente de Wamda Nour 🌟 ¿Cómo puedo ayudarte hoy? 😊"
     },
     'fr': {
-        'nav-contact': "Contactez-nous",
-        'nav-donate': "Faire un don",
         'nav-login': "Connexion",
-        'noor-msg': "Bonjour! Je suis Noor 🌟 Comment puis-je vous aider aujourd'hui? 😊",
-        'footer-rights': "© Tous droits réservés à l'Association Wamda Nour 2026"
+        'nav-donate': "Faire un don",
+        'nav-contact': "Contactez-nous",
+        'noor-msg': "Bonjour! Je suis Noor, assistant de Wamda Nour 🌟 Comment puis-je vous aider aujourd'hui? 😊"
     }
 };
 
+// وظيفة تغيير اللغة وتحديث المحتوى
 function changeLanguage(lang) {
-    // ترجمة كل عنصر يحمل خاصية data-i18n
+    // 1. ترجمة العناصر التي تحمل خاصية data-i18n
     document.querySelectorAll('[data-i18n]').forEach(element => {
         const key = element.getAttribute('data-i18n');
         if (translations[lang][key]) {
@@ -38,16 +36,33 @@ function changeLanguage(lang) {
         }
     });
 
-    // تغيير اتجاه الصفحة
+    // 2. تحديث نص رسالة "نوري" الذكي
+    const noorText = document.querySelector('#noor-ai-assistant .absolute');
+    if (noorText) {
+        noorText.innerText = translations[lang]['noor-msg'];
+    }
+
+    // 3. تغيير اتجاه الصفحة (RTL للعربية فقط)
     document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
     document.documentElement.lang = lang;
-    
-    // حفظ اللغة المختارة في المتصفح لتبقى ثابتة عند التنقل بين الصفحات
+
+    // 4. حفظ اللغة المختارة في المتصفح لضمان استمرارها عند التنقل بين الصفحات
     localStorage.setItem('selectedLang', lang);
 }
 
-// عند تحميل أي صفحة، استرجع اللغة المحفوظة
+// ربط أزرار قائمة اللغات بالوظيفة البرمجية
 document.addEventListener('DOMContentLoaded', () => {
+    const langLinks = document.querySelectorAll('.group div a');
+    const languages = ['ar', 'en', 'fr', 'es'];
+
+    langLinks.forEach((link, index) => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            changeLanguage(languages[index]);
+        });
+    });
+
+    // تحميل اللغة المحفوظة مسبقاً عند فتح الصفحة
     const savedLang = localStorage.getItem('selectedLang') || 'ar';
     changeLanguage(savedLang);
 });
