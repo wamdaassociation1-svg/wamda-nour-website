@@ -16,43 +16,25 @@
     
     <style>
         body { font-family: 'Tajawal', sans-serif; background-color: #050a14; color: white; margin: 0; }
-        .glass-nav { background: rgba(5, 10, 20, 0.9); backdrop-filter: blur(12px); border-bottom: 1.5px solid rgba(0, 220, 232, 0.3); }
+        
+        /* النيفبار المعتمد والمثبت في الأعلى */
+        .glass-nav { 
+            background: rgba(5, 10, 20, 0.9); 
+            backdrop-filter: blur(12px); 
+            border-bottom: 1.5px solid rgba(0, 220, 232, 0.3);
+            position: fixed; /* تثبيت النيفبار */
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
     </style>
 </head>
 <body>
-    <nav class="fixed top-0 w-full z-[1000] glass-nav py-4 px-12 flex justify-between items-center">
+    <nav class="glass-nav py-4 px-12 flex justify-between items-center">
         <div class="flex items-center gap-4 min-w-[250px]">
             <div class="w-12 h-12 bg-brandCyan rounded-lg flex items-center justify-center text-brandNavy font-black text-2xl shadow-[0_0_15px_#00dce8]">WN</div>
             <h1 class="text-xl font-bold">جمعية ومضة نور</h1>
         </div>
         <div class="hidden xl:flex gap-6 text-[13px] font-bold">
             <a href="index.html" class="hover:text-brandCyan transition">الرئيسية</a>
-            <a href="about.html" class="text-brandCyan">من نحن</a>
-            <a href="#" class="hover:text-brandCyan transition">مؤتمراتنا</a>
-            <a href="#" class="hover:text-brandCyan transition">مبادراتنا</a>
-            <a href="#" class="hover:text-brandCyan transition">دوراتنا التدريبية</a>
-            <a href="#" class="font-black text-white hover:text-brandCyan border-b border-brandCyan">سوق التمكين</a>
-        </div>
-        <div class="flex items-center gap-5 min-w-[350px] justify-end">
-             <a href="#" class="bg-brandCyan text-brandNavy px-6 py-2 rounded-lg font-black text-xs shadow-lg">اتصل بنا</a>
-        </div>
-    </nav>
-
-    <main class="pt-48 pb-20 px-12 md:px-24 max-w-5xl mx-auto">
-        <div class="mb-12">
-            <h2 class="text-4xl font-black italic mb-4 underline decoration-brandCyan underline-offset-8">رؤيتنا</h2>
-            <p class="text-gray-400 text-lg leading-relaxed italic">نحو مستقبل يملؤه النور والتمكين لكل فرد في المجتمع.</p>
-        </div>
-
-        <div class="bg-white/5 border border-brandCyan/20 p-10 rounded-[45px]">
-            <p class="text-xl leading-loose text-gray-300">
-                تطمح جمعية ومضة نور إلى أن تكون الرائدة عالمياً في تقديم الحلول التنموية والإنسانية المستدامة. رؤيتنا لا تتوقف عند تقديم العون فحسب، بل تمتد لتأسيس بيئة خصبة تمكن الإنسان من بناء حياته بكرامة واستقلالية، عبر برامج نوعية تدمج بين الابتكار والخدمة المجتمعية.
-            </p>
-        </div>
-    </main>
-
-    <footer class="bg-black py-12 text-center border-t border-brandCyan/20 mt-20">
-        <p class="text-[10px] text-gray-700 tracking-[5px] uppercase font-bold italic">© جميع الحقوق محفوظة لجمعية ومضة نور 2026</p>
-    </footer>
-</body>
-</html>
+            <a href="about.html" class="hover
