@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أهدافنا الاستراتيجية | جمعية ومضة نور</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandCyan: '#00dce8',
+                        brandNavy: '#050a14',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body { font-family: 'Tajawal', sans-serif; background-color: #050a14; color: white; margin: 0; overflow-x: hidden; }
+        
+        .glass-nav {
+            background: rgba(5, 10, 20, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1.5px solid rgba(0, 220, 232, 0.3);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            color: #00dce8;
+            font-weight: 900;
+            transition: 0.4s;
+            margin-bottom: 40px;
+            cursor: pointer;
+        }
+        .back-btn:hover { transform: translateX(10px); color: white; }
+
+        /* حاوية الأهداف والصورة لضمان تطابق الارتفاع */
+        .goals-wrapper {
+            display: flex;
+            align-items: stretch; 
+            gap: 2.5rem;
+        }
+        
+        .goals-list-card {
+            flex: 1;
+        }
+
+        .goals-image-box {
+            flex: 1.5;
+            border-radius: 40px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 220, 232, 0.2);
+        }
+
+        .goal-item {
+            border-bottom: 1px solid rgba(0, 220, 232, 0.1);
+            padding-bottom: 1.2rem;
+            margin-bottom: 1.2rem;
+        }
+        .goal-item:last-child { border-bottom: none; margin-bottom: 0; }
+    </style>
+</head>
+<body>
+    <nav class="glass-nav py-4 px-12 flex justify-between items-center text-white">
+        <div class="flex items-center gap-4 min-w-[250px]">
+            <div class="w-12 h-12 bg-brandCyan rounded-lg flex items-center justify-center text-brandNavy font-black text-2xl shadow-[0_0_15px_#00dce8]">WN</div>
+            <h1 class="text-xl font-bold">جمعية ومضة نور</h1>
+        </div>
+        
+        <div class="hidden xl:flex gap-6 text-[13px] font-bold">
+            <a href="index.html" class="hover:text-brandCyan transition text-gray-400">الرئيسية</a>
+            <a href="about.html" class="text-brandCyan italic underline decoration-brandCyan decoration-2 underline-offset-8">من نحن</a>
+            <a href="#" class="hover:text-brandCyan transition text-gray-400">مؤتمراتنا</a>
+            <a href="#" class="hover:text-brandCyan transition text-gray-400">مبادراتنا</a>
+            <a href="#" class="hover:text-brandCyan transition text-gray-400">دوراتنا التدريبية</a>
+            <a href="#" class="font-black text-white hover:text-brandCyan border-b border-brandCyan">سوق التمكين</a>
+        </div>
+
+        <div class="flex items-center gap-5 min-w-[350px] justify-end font-bold text-white">
+            <div class="relative group cursor-pointer flex items-center gap-2 text-brandCyan text-xs uppercase">
+                <i class="fas fa-globe"></i>
+                <span>AR</span>
+            </div>
+            <a href="#" class="text-xs hover:text-brandCyan italic">الدخول</a>
+            <a href="#" class="border border-brandCyan text-brandCyan px-5 py-2 rounded-lg text-xs hover:bg-brandCyan hover:text-brandNavy transition">تبرع الآن</a>
+            <a href="#" class="bg-brandCyan text-brandNavy px-6 py-2 rounded-lg text-xs shadow-lg">اتصل بنا</a>
+        </div>
+    </nav>
+
+    <main class="pt-48 pb-24 px-8 md:px-16 lg:px-24 max-w-[1400px] mx-auto">
+        <a href="about.html" class="back-btn italic text-white">
+            <i class="fas fa-arrow-right text-2xl text-brandCyan"></i>
+            <span class="text-lg font-black">العودة لصفحة من نحن</span>
+        </a>
+
+        <div class="space-y-10">
+            <h2 class="text-5xl font-black italic text-white underline decoration-brandCyan underline-offset-[15px] mb-12">أهدافنا الاستراتيجية</h2>
+            
+            <div class="goals-wrapper">
+                <div class="goals-list-card bg-white/5 border-r-4 border-brandCyan p-10 rounded-2xl shadow-2xl flex flex-col justify-center">
+                    
+                    <div class="goal-item">
+                        <div class="flex items-center gap-4 mb-2">
+                            <span class="text-brandCyan font-black text-2xl italic">01</span>
+                            <h4 class="text-xl font-bold text-white">تحقيق التنمية المستدامة</h4>
+                        </div>
+                        <p class="text-gray-400 italic text-sm leading-relaxed">العمل على مشاريع طويلة الأمد تضمن اكتفاء الأسر ذاتياً وتحويلها من الاحتياج إلى الإنتاج.</p>
+                    </div>
+
+                    <div class="goal-item">
+                        <div class="flex items-center gap-4 mb-2">
+                            <span class="text-brandCyan font-black text-2xl italic">02</span>
+                            <h4 class="text-xl font-bold text-white">التمكين الاقتصادي والاجتماعي</h4>
+                        </div>
+                        <p class="text-gray-400 italic text-sm leading-relaxed">توفير الدعم المهني والتعليمي للفئات المستهدفة لتمكينهم من بناء مستقبل مستقل ومستقر.</p>
+                    </div>
+
+                    <div class="goal-item">
+                        <div class="flex items-center gap-4 mb-2">
+                            <span class="text-brandCyan font-black text-2xl italic">03</span>
+                            <h4 class="text-xl font-bold text-white">بناء الشراكات النوعية</h4>
+                        </div>
+                        <p class="text-gray-400 italic text-sm leading-relaxed">توسيع نطاق التعاون مع الجهات الحكومية والخاصة لتعظيم أثر المبادرات الإنسانية.</p>
+                    </div>
+
+                    <div class="goal-item">
+                        <div class="flex items-center gap-4 mb-2">
+                            <span class="text-brandCyan font-black text-2xl italic">04</span>
+                            <h4 class="text-xl font-bold text-white">الابتكار في العمل الخيري</h4>
+                        </div>
+                        <p class="text-gray-400 italic text-sm leading-relaxed">استخدام أحدث الوسائل التقنية والإدارية لتطوير كفاءة تقديم الخدمات الرعوية والتنموية.</p>
+                    </div>
+
+                </div>
+                
+                <div class="goals-image-box">
+                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2070" 
+                         alt="Strategic Goals"
+                         class="w-full h-full object-cover grayscale opacity-50 hover:opacity-100 transition duration-700">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-black py-12 text-center border-t border-brandCyan/20 mt-10">
+        <p class="text-[10px] text-gray-700 tracking-[5px] uppercase font-bold italic">© جميع الحقوق محفوظة لجمعية ومضة نور 2026</p>
+    </footer>
+</body>
+</html>
