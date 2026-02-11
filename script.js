@@ -1,68 +1,66 @@
-// مصفوفة الترجمة المركزية للموقع (4 لغات)
+// قاموس الترجمة الشامل (بما في ذلك نوري المساعد الذكي)
 const translations = {
-    'ar': {
-        'nav-login': "الدخول",
-        'nav-donate': "تبرع الآن",
-        'nav-contact': "اتصل بنا",
-        'noor-msg': "مرحبا! أنا نوري، مساعد ومضة نور 🌟 قولي... إزاي أقدر أساعدك النهاردة؟ 😊"
+    ar: {
+        "nav-login": "الدخول",
+        "nav-donate": "تبرع الآن",
+        "nav-contact": "اتصل بنا",
+        "hero-title": "نضيء دروب <span class='text-brandCyan'>الخير</span> ونصنع أثر مستدام",
+        "hero-btn": "مبادراتنا الميدانية",
+        "ai-greet": "مرحبا! أنا نوري، مساعد ومضة نور 🌟 قولي... إزاي أقدر أساعدك النهاردة؟ 😊"
     },
-    'en': {
-        'nav-login': "Login",
-        'nav-donate': "Donate Now",
-        'nav-contact': "Contact Us",
-        'noor-msg': "Hello! I am Noor, Wamda Nour assistant 🌟 How can I help you today? 😊"
+    en: {
+        "nav-login": "Login",
+        "nav-donate": "Donate Now",
+        "nav-contact": "Contact Us",
+        "hero-title": "Lighting paths of <span class='text-brandCyan'>Goodness</span> for a sustainable impact",
+        "hero-btn": "Our Field Initiatives",
+        "ai-greet": "Hi! I'm Noor, Wamda Noor's assistant 🌟 Tell me... how can I help you today? 😊"
     },
-    'es': {
-        'nav-login': "Acceso",
-        'nav-donate': "Donar Ahora",
-        'nav-contact': "Contáctenos",
-        'noor-msg': "¡Hola! Soy Noor, asistente de Wamda Nour 🌟 ¿Cómo puedo ayudarte hoy? 😊"
+    fr: {
+        "nav-login": "Connexion",
+        "nav-donate": "Faire un don",
+        "nav-contact": "Contactez-nous",
+        "hero-title": "Éclairer les chemins du <span class='text-brandCyan'>Bien</span> pour un impact durable",
+        "hero-btn": "Nos Initiatives",
+        "ai-greet": "Salut! Je suis Noor, l'assistant de Wamda Noor 🌟 Dites-moi... comment puis-je vous aider aujourd'hui ? 😊"
     },
-    'fr': {
-        'nav-login': "Connexion",
-        'nav-donate': "Faire un don",
-        'nav-contact': "Contactez-nous",
-        'noor-msg': "Bonjour! Je suis Noor, assistant de Wamda Nour 🌟 Comment puis-je vous aider aujourd'hui? 😊"
+    es: {
+        "nav-login": "Acceso",
+        "nav-donate": "Donar Ahora",
+        "nav-contact": "Contáctenos",
+        "hero-title": "Iluminando caminos de <span class='text-brandCyan'>Bien</span> para un impacto sostenible",
+        "hero-btn": "Nuestras Iniciativas",
+        "ai-greet": "¡Hola! Soy Noor, el asistente de Wamda Noor 🌟 Dime... ¿cómo puedo ayudarte hoy? 😊"
     }
 };
 
-// وظيفة تغيير اللغة وتحديث المحتوى
+// وظيفة تغيير اللغة
 function changeLanguage(lang) {
-    // 1. ترجمة العناصر التي تحمل خاصية data-i18n
-    document.querySelectorAll('[data-i18n]').forEach(element => {
-        const key = element.getAttribute('data-i18n');
-        if (translations[lang][key]) {
-            element.innerText = translations[lang][key];
-        }
-    });
-
-    // 2. تحديث نص رسالة "نوري" الذكي
-    const noorText = document.querySelector('#noor-ai-assistant .absolute');
-    if (noorText) {
-        noorText.innerText = translations[lang]['noor-msg'];
-    }
-
-    // 3. تغيير اتجاه الصفحة (RTL للعربية فقط)
+    // 1. تغيير اتجاه الصفحة (عربي = من اليمين، الباقي = من اليسار)
     document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
     document.documentElement.lang = lang;
 
-    // 4. حفظ اللغة المختارة في المتصفح لضمان استمرارها عند التنقل بين الصفحات
-    localStorage.setItem('selectedLang', lang);
-}
-
-// ربط أزرار قائمة اللغات بالوظيفة البرمجية
-document.addEventListener('DOMContentLoaded', () => {
-    const langLinks = document.querySelectorAll('.group div a');
-    const languages = ['ar', 'en', 'fr', 'es'];
-
-    langLinks.forEach((link, index) => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            changeLanguage(languages[index]);
-        });
+    // 2. تحديث النصوص التي تحمل معرف data-i18n
+    const elements = document.querySelectorAll('[data-i18n]');
+    elements.forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+            el.innerHTML = translations[lang][key];
+        }
     });
 
-    // تحميل اللغة المحفوظة مسبقاً عند فتح الصفحة
-    const savedLang = localStorage.getItem('selectedLang') || 'ar';
+    // 3. تحديث رمز اللغة الظاهر في النيفبار (AR, EN, FR, ES)
+    const langSpan = document.querySelector('.group span.uppercase');
+    if (langSpan) {
+        langSpan.textContent = lang;
+    }
+
+    // 4. حفظ اللغة المختارة في ذاكرة المتصفح
+    localStorage.setItem('preferredLang', lang);
+}
+
+// تشغيل اللغة المحفوظة تلقائياً عند فتح الموقع
+window.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('preferredLang') || 'ar';
     changeLanguage(savedLang);
 });
