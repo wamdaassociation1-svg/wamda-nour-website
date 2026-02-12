@@ -3,100 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>جمعية ومضة نور | الرئيسية</title>
+    <title>جمعية ومضة نور | الموقع الرسمي</title>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <script>
         tailwind.config = {
-            theme: {
-                extend: {
-                    colors: { brandCyan: '#00dce8', brandNavy: '#050a14' }
-                }
-            }
+            theme: { extend: { colors: { brandCyan: '#00dce8', brandNavy: '#050a14' } } }
         }
     </script>
     <style>
-        body { font-family: 'Tajawal', sans-serif; background-color: #050a14; color: white; overflow-x: hidden; }
+        body { font-family: 'Tajawal', sans-serif; background-color: #050a14; color: white; margin: 0; }
         @keyframes floatNav { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(5px); } }
-        .glass-nav { background: rgba(5, 10, 20, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0, 220, 232, 0.2); animation: floatNav 4s ease-in-out infinite; }
-        .card-hover { transition: 0.4s; border: 1px solid rgba(0, 220, 232, 0.1); }
-        .card-hover:hover { border-color: #00dce8; transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0, 220, 232, 0.1); }
+        .glass-nav { background: rgba(5, 10, 20, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0, 220, 232, 0.3); animation: floatNav 4s ease-in-out infinite; }
+        .card-style { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(0, 220, 232, 0.1); transition: 0.4s; }
+        .card-style:hover { border-color: #00dce8; box-shadow: 0 0 25px rgba(0, 220, 232, 0.2); transform: translateY(-5px); }
     </style>
 </head>
 <body>
 
-    <nav class="fixed top-0 w-full z-[1000] glass-nav py-4 px-8 md:px-16 flex justify-between items-center">
-        <div class="flex items-center gap-4">
-            <div class="w-10 h-10 bg-brandCyan rounded-lg flex items-center justify-center text-brandNavy font-black shadow-[0_0_15px_#00dce8]">WN</div>
-            <span class="font-bold hidden md:block">جمعية ومضة نور</span>
+    <nav class="fixed top-0 w-full z-[1000] glass-nav py-4 px-12 flex justify-between items-center">
+        <div class="flex items-center gap-4 min-w-[250px]">
+            <div class="w-12 h-12 bg-brandCyan rounded-lg flex items-center justify-center text-brandNavy font-black text-2xl shadow-[0_0_15px_#00dce8]">WN</div>
+            <h1 class="text-xl font-bold">جمعية ومضة نور</h1>
         </div>
-        <div class="hidden lg:flex gap-8 text-sm font-bold">
+        
+        <div class="hidden xl:flex gap-6 text-[13px] font-bold">
             <a href="#" class="text-brandCyan">الرئيسية</a>
-            <a href="#" class="hover:text-brandCyan transition">من نحن</a>
+            <a href="about.html" class="hover:text-brandCyan transition">من نحن</a>
             <a href="#" class="hover:text-brandCyan transition">مؤتمراتنا</a>
-            <a href="#" class="hover:text-brandCyan transition">سوق التمكين</a>
+            <a href="#" class="hover:text-brandCyan transition">مبادراتنا</a>
+            <a href="#" class="hover:text-brandCyan transition">دوراتنا</a>
+            <a href="#" class="font-black text-white hover:text-brandCyan border-b border-brandCyan">سوق التمكين</a>
         </div>
-        <div class="flex items-center gap-4 md:gap-6">
-            <div class="flex items-center gap-2 text-brandCyan cursor-pointer group relative">
-                <i class="fas fa-globe"></i> <span class="text-xs font-black uppercase">AR</span>
-                <div class="absolute top-full mt-2 hidden group-hover:block bg-brandNavy border border-brandCyan/20 rounded-lg p-2 w-24">
-                    <a href="#" class="block p-2 text-[10px] hover:bg-brandCyan hover:text-brandNavy">EN</a>
-                    <a href="#" class="block p-2 text-[10px] hover:bg-brandCyan hover:text-brandNavy">FR</a>
-                    <a href="#" class="block p-2 text-[10px] hover:bg-brandCyan hover:text-brandNavy">ES</a>
-                </div>
+
+        <div class="flex items-center gap-5 min-w-[350px] justify-end">
+            <div class="relative group cursor-pointer flex items-center gap-2 text-brandCyan">
+                <i class="fas fa-globe"></i> <span class="text-xs font-bold uppercase">AR</span>
             </div>
-            <a href="#" data-i18n="nav-login" class="text-xs font-bold">الدخول</a>
-            <a href="#" data-i18n="nav-donate" class="border border-brandCyan text-brandCyan px-4 py-2 rounded-lg text-xs font-bold hover:bg-brandCyan hover:text-brandNavy transition">تبرع الآن</a>
-            <a href="#" data-i18n="nav-contact" class="bg-brandCyan text-brandNavy px-4 py-2 rounded-lg text-xs font-black">اتصل بنا</a>
-        </div>
+            <a href="#" data-i18n="nav-login" class="text-xs font-bold hover:text-brandCyan">الدخول</a>
+            <a href="#" data-i18n="nav-donate" class="border border-brandCyan text-brandCyan px-5 py-2 rounded-lg font-bold text-xs hover:bg-brandCyan hover:text-brandNavy transition">تبرع الآن</a>
+            <a href="#" data-i18n="nav-contact" class="bg-brandCyan text-brandNavy px-6 py-2 rounded-lg font-black text-xs">اتصل بنا</a>
+        </div> 
     </nav>
 
-    <section class="relative h-screen flex items-center justify-center text-center overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=2070" class="absolute inset-0 w-full h-full object-cover opacity-50">
-        <div class="relative z-10 px-6 max-w-4xl">
-            <h2 class="text-4xl md:text-7xl font-black mb-8 leading-tight">نضيء دروب <span class="text-brandCyan underline decoration-brandCyan">الخير</span></h2>
-            <button class="bg-brandCyan text-brandNavy px-10 py-4 rounded-full font-black text-lg hover:scale-105 transition shadow-2xl">استكشف مبادراتنا</button>
+    <section class="relative h-screen flex items-center justify-center text-center">
+        <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=2070" class="absolute inset-0 w-full h-full object-cover opacity-40">
+        <div class="relative z-10 px-6">
+            <h2 class="text-3xl md:text-6xl font-black text-white mb-10 leading-tight">نضيء دروب <span class="text-brandCyan">الخير</span> ونبني مستقبلاً <br> للأجيال القادمة</h2>
+            <button class="bg-brandCyan text-brandNavy px-14 py-4 rounded-full font-black text-xl shadow-2xl hover:scale-110 transition">استكشف مبادراتنا الميدانية</button>
         </div>
     </section>
 
-    <section class="py-28 px-8 md:px-20 bg-brandNavy border-t border-brandCyan/10">
-        <div class="max-w-[1500px] mx-auto grid lg:grid-cols-12 gap-16 items-center">
-            <div class="lg:col-span-5 space-y-8 order-2 lg:order-1">
-                <h3 class="text-brandCyan text-2xl font-bold italic underline decoration-brandCyan underline-offset-8">النبذة التعريفية</h3>
-                <p class="text-gray-400 italic leading-loose text-lg">تأسست جمعية ومضة نور ككيان إنساني يسعى لإحداث تغيير جذري ومستدام في حياة الأفراد الفئات الأكثر احتياجاً.</p>
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="bg-white/5 p-6 rounded-2xl border border-brandCyan/10">
-                        <h5 class="text-brandCyan font-bold mb-2 italic">رؤيتنا</h5>
-                        <p class="text-[10px] text-gray-500">الريادة والتميز العالمي في تقديم الخدمات.</p>
-                    </div>
-                    <div class="bg-white/5 p-6 rounded-2xl border border-brandCyan/10">
-                        <h5 class="text-brandCyan font-bold mb-2 italic">رسالتنا</h5>
-                        <p class="text-[10px] text-gray-500">تمكين المجتمعات عبر برامج نوعية شاملة.</p>
-                    </div>
+    <section class="py-32 px-12 md:px-24 grid lg:grid-cols-12 gap-16 items-center bg-brandNavy">
+        <div class="lg:col-span-5 space-y-10 order-2 lg:order-1">
+            <h3 class="text-brandCyan text-2xl font-bold italic underline decoration-brandCyan underline-offset-8 text-right">النبذة التعريفية</h3>
+            <p class="text-gray-400 italic leading-loose text-xl text-right">تأسست جمعية ومضة نور ككيان إنساني يسعى لإحداث تغيير جذري ومستدام في حياة الأفراد الفئات الأكثر احتياجاً.</p>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="card-style rounded-3xl p-8">
+                    <h5 class="text-brandCyan font-bold mb-3">رؤيتنا</h5>
+                    <p class="text-sm text-gray-500">الريادة والتميز العالمي في تقديم الخدمات الرعوية والتنموية.</p>
+                </div>
+                <div class="card-style rounded-3xl p-8">
+                    <h5 class="text-brandCyan font-bold mb-3">رسالتنا</h5>
+                    <p class="text-sm text-gray-500">تمكين المجتمعات عبر برامج نوعية ورعاية شاملة تضمن كرامة الإنسان.</p>
                 </div>
             </div>
-            <div class="lg:col-span-7 order-1 lg:order-2">
-                <div class="rounded-[40px] overflow-hidden border-2 border-brandCyan/20 h-[500px] shadow-2xl relative group">
-                    <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=2070" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-1000">
-                </div>
+        </div>
+        <div class="lg:col-span-7 order-1 lg:order-2">
+            <div class="rounded-[50px] overflow-hidden border-2 border-brandCyan/20 h-[550px] shadow-2xl">
+                <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=2070" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-1000">
             </div>
         </div>
     </section>
 
-    <section class="py-20 bg-black/30 flex flex-wrap justify-center gap-8 px-6">
-        <div class="card-hover w-64 h-40 rounded-3xl flex flex-col items-center justify-center cursor-pointer">
-            <i class="fas fa-shopping-basket text-brandCyan text-3xl mb-3"></i>
-            <span class="font-bold text-xs tracking-widest">سوق التمكين</span>
+    <section class="py-24 flex flex-wrap justify-center gap-12 px-6">
+        <div class="card-style w-72 h-44 rounded-[40px] flex flex-col items-center justify-center cursor-pointer">
+            <i class="fas fa-store text-brandCyan text-4xl mb-4"></i>
+            <span class="font-bold text-xs tracking-widest uppercase">سوق التمكين</span>
         </div>
-        <div class="card-hover w-64 h-40 rounded-3xl flex flex-col items-center justify-center cursor-pointer">
-            <i class="fas fa-book-open text-brandCyan text-3xl mb-3"></i>
-            <span class="font-bold text-xs tracking-widest">المجلة الرقمية</span>
+        <div class="card-style w-72 h-44 rounded-[40px] flex flex-col items-center justify-center cursor-pointer">
+            <i class="fas fa-book-open text-brandCyan text-4xl mb-4"></i>
+            <span class="font-bold text-xs tracking-widest uppercase">المجلة الرقمية</span>
         </div>
-        <div class="card-hover w-64 h-40 rounded-3xl flex flex-col items-center justify-center cursor-pointer">
-            <i class="fas fa-users text-brandCyan text-3xl mb-3"></i>
-            <span class="font-bold text-xs tracking-widest">المجتمع</span>
+        <div class="card-style w-72 h-44 rounded-[40px] flex flex-col items-center justify-center cursor-pointer">
+            <i class="fas fa-users text-brandCyan text-4xl mb-4"></i>
+            <span class="font-bold text-xs tracking-widest uppercase">المجتمع</span>
         </div>
-        <div class="card-hover w-64 h-40 rounded-3xl flex flex-col items-center justify-center cursor-pointer">
-            <i class="fas fa-user-plus text-brandCyan text-3xl mb-3"></i>
-            <span class
+        <div class="card-style w-72 h-44 rounded-[40px] flex flex-col items-center justify-center cursor-pointer">
+            <i class="fas fa-user-plus text-brandCyan text-4xl mb-4"></i>
+            <span class="font-bold text-xs tracking-widest uppercase">انضم إلينا</span>
+        </div>
+    </section>
+
+    <section class="py-20 text-center px-12">
+        <h2 class="text-brandCyan text-2xl font-bold mb-16 italic">التسجيلات الدولية والشركاء</h2>
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-6">
+            <div class="card-style h-28 rounded-2xl flex items-center justify-center text-[10px] text-gray-600">REGISTRATION: WN-HQ-2026</div>
+            <div class="card-style h-28 rounded-2xl flex items-center justify-center font-black text-gray-800">LOGO</div>
+            <div class="card-style h-28 rounded-2xl flex items-center justify-center font-black text-gray-800">LOGO</div>
+            <div class="card-style h-28 rounded-2xl flex items-center justify-center font-black text-gray-800">LOGO</div>
+            <div class="card-style h-28 rounded-2xl flex items-center justify-center font-black text-gray-800">LOGO</div>
+        </div>
+    </section>
+
+    <section class="py-24 px-12 md:px-24 border-t border-brandCyan/10 bg-brandNavy">
+        <div class="grid md:grid-cols-3 gap-24">
+            <div class="space-y-6">
+                <h4 class="text-brandCyan font-bold text-2xl italic underline decoration-brandCyan underline-offset-8">جمعية ومضة نور</h4>
+                <p class="text-gray-500 text-base leading-relaxed italic">نعمل على تمكين الإنسان وبناء المجتمعات من خلال حلول تنموية مستدامة.</p>
+            </div>
+            <div class="space-y-6">
+                <h4 class="text-brandCyan font-bold text-2xl italic">المجتمع</h4>
+                <div class="flex flex-col gap-4 text-gray-400">
+                    <a href="#" class="hover:text-brandCyan">بوابة المتطوعين</a>
+                    <a href="#" class="hover:text-brandCyan">نادي ومضة</a>
+                </div>
+            </div>
+            <div class="space-y-6">
+                <h4 class="text-brandCyan font-bold text-2xl italic">الخصوصية</h4>
+                <div class="flex flex-col gap-4 text-gray-400">
+                    <p class="hover:text-brandCyan cursor-pointer">سياسة الخصوصية</p>
+                    <p class="text-brandCyan font-bold border-r-4 border-brandCyan pr-4">موثوقية البيانات</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black py-16 text-center border-t border-brandCyan/20">
+        <div class="flex justify-center gap-10 text-3xl text-brandCyan mb-10">
+            <i class="fab fa-facebook hover:text-white transition"></i>
+            <i class="fab fa-whatsapp hover:text-white transition"></i>
+            <i class="fab fa-x-twitter hover:text-white transition"></i>
+            <i class="fab fa-youtube hover:text-white transition"></i>
+            <i class="fab fa-telegram hover:text-white transition"></i>
+        </div>
+        <p class="text-[11px] text-gray-700 tracking-[6px] uppercase font-black italic">© جميع الحقوق محفوظة لجمعية ومضة نور 2026</p>
+    </footer>
+
+    <div class="fixed bottom-10 right-10 z-[2000] cursor-pointer group">
+        <div class="absolute bottom-24 right-0 bg-white text-brandNavy p-5 rounded-3xl w-72 shadow-2xl opacity-0 group-hover:opacity-100 transition-all border-2 border-brandCyan text-sm font-bold italic">
+            مرحبا! أنا نوري، مساعد ومضة نور 🌟 كيف يمكنني مساعدتك؟
+        </div>
+        <div class="w-20 h-20 bg-brandNavy border-2 border-brandCyan rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(0,220,232,0.4)] hover:scale-110 transition">
+            <i class="fas fa-robot text-brandCyan text-4xl"></i>
+        </div>
+    </div>
+
+</body>
+</html>
