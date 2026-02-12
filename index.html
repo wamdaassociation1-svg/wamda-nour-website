@@ -24,7 +24,7 @@
     <style>
         body { font-family: 'Tajawal', sans-serif; background-color: #050a14; color: white; margin: 0; overflow-x: hidden; }
         
-        /* حركة النيفبار اللطيفة */
+        /* حركة النيفبار العائمة */
         @keyframes floatNav {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(3px); }
@@ -38,12 +38,15 @@
 
         .hero-overlay { background: linear-gradient(to bottom, rgba(5, 10, 20, 0.4), rgba(5, 10, 20, 0.8)); }
         
-        .intro-card {
+        .intro-card, .reg-card, .partner-card {
             background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(0, 220, 232, 0.2);
+            border: 1px solid rgba(0, 220, 232, 0.1);
             transition: 0.3s;
         }
-        .intro-card:hover { border-color: #00dce8; box-shadow: 0 0 20px rgba(0, 220, 232, 0.3); }
+        .intro-card:hover, .reg-card:hover, .partner-card:hover { 
+            border-color: #00dce8; 
+            box-shadow: 0 0 20px rgba(0, 220, 232, 0.2); 
+        }
 
         .service-card {
             border: 1px solid rgba(0, 220, 232, 0.2);
@@ -51,7 +54,6 @@
         }
         .service-card:hover { border-color: #00dce8; box-shadow: 0 0 20px rgba(0, 220, 232, 0.4); }
 
-        /* لضمان بقاء القائمة المنسدلة */
         .group:hover .absolute { display: block !important; }
     </style>
 </head>
@@ -101,21 +103,22 @@
     <section class="py-28 px-12 md:px-24 grid lg:grid-cols-2 gap-16 items-center">
         <div class="space-y-10">
             <h3 data-i18n="about-title" class="text-brandCyan text-2xl font-bold italic underline decoration-brandCyan underline-offset-8">النبذة التعريفية</h3>
-            <p data-i18n="about-desc" class="text-gray-400 italic leading-loose text-lg">تأسست جمعية ومضة نور ككيان إنساني يسعى لإحداث تغيير جذري ومستدام في حياة الأفراد.</p>
+            <p data-i18n="about-desc" class="text-gray-400 italic leading-loose text-lg">تأسست جمعية ومضة نور ككيان إنساني يسعى لإحداث تغيير جذري ومستدام في حياة الأفراد الفئات الأكثر احتياجاً.</p>
             <div class="grid md:grid-cols-2 gap-6">
                 <div class="intro-card rounded-2xl p-8">
-                    <h5 class="text-brandCyan font-bold mb-3">رؤيتنا</h5>
-                    <p class="text-xs text-gray-500">الريادة والتميز العالمي في تقديم الخدمات.</p>
+                    <h5 class="text-brandCyan font-bold mb-3 italic">رؤيتنا</h5>
+                    <p class="text-xs text-gray-500">الريادة والتميز العالمي في تقديم الخدمات الرعوية والتنموية.</p>
                 </div>
                 <div class="intro-card rounded-2xl p-8">
-                    <h5 class="text-brandCyan font-bold mb-3">رسالتنا</h5>
-                    <p class="text-xs text-gray-500">تمكين المجتمعات عبر برامج نوعية ورعاية شاملة.</p>
+                    <h5 class="text-brandCyan font-bold mb-3 italic">رسالتنا</h5>
+                    <p class="text-xs text-gray-500">تمكين المجتمعات عبر برامج نوعية ورعاية شاملة تضمن كرامة الإنسان.</p>
                 </div>
             </div>
         </div>
         <div class="flex justify-center lg:justify-end">
-            <div class="rounded-[40px] overflow-hidden border-2 border-brandCyan/20 w-full max-w-md h-[500px] shadow-2xl">
+            <div class="rounded-[40px] overflow-hidden border-2 border-brandCyan/20 w-full max-w-md h-[500px] shadow-2xl relative">
                 <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=2070" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700">
+                <div class="absolute inset-0 bg-brandCyan/5 pointer-events-none"></div>
             </div>
         </div>
     </section>
@@ -123,34 +126,45 @@
     <section class="py-20 bg-black/40 flex flex-wrap justify-center gap-10">
         <div class="service-card w-64 h-36 rounded-3xl flex flex-col items-center justify-center cursor-pointer group">
             <i class="fas fa-store text-brandCyan text-3xl mb-4 group-hover:scale-110 transition"></i>
-            <span class="font-bold text-xs">سوق التمكين</span>
+            <span class="font-bold text-[11px] uppercase tracking-widest">سوق التمكين</span>
         </div>
         <div class="service-card w-64 h-36 rounded-3xl flex flex-col items-center justify-center cursor-pointer group">
             <i class="fas fa-book-open text-brandCyan text-3xl mb-4 group-hover:scale-110 transition"></i>
-            <span class="font-bold text-xs">المجلة</span>
+            <span class="font-bold text-[11px] uppercase tracking-widest">المجلة</span>
         </div>
         <div class="service-card w-64 h-36 rounded-3xl flex flex-col items-center justify-center cursor-pointer group">
             <i class="fas fa-users text-brandCyan text-3xl mb-4 group-hover:scale-110 transition"></i>
-            <span class="font-bold text-xs">المجتمع</span>
+            <span class="font-bold text-[11px] uppercase tracking-widest">المجتمع</span>
         </div>
     </section>
 
     <section class="py-24 text-center px-12 md:px-24">
-        <h2 data-i18n="partner-title" class="text-brandCyan text-2xl font-bold mb-12 italic">الشركاء الاستراتيجيون</h2>
-        <div class="grid grid-cols-2 md:grid-cols-5 gap-6">
-            <div class="h-24 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center text-gray-600 font-bold">LOGO</div>
-            <div class="h-24 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center text-gray-600 font-bold">LOGO</div>
-            <div class="h-24 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center text-gray-600 font-bold">LOGO</div>
-            <div class="h-24 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center text-gray-600 font-bold">LOGO</div>
-            <div class="h-24 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center text-gray-600 font-bold">LOGO</div>
+        <h2 data-i18n="reg-title" class="text-brandCyan text-2xl font-bold mb-12 italic">التسجيلات الدولية</h2>
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+            <div class="reg-card h-24 rounded-xl flex items-center justify-center text-[10px] italic text-gray-400">REGISTRATION: WN-HQ-2026-01</div>
+            <div class="reg-card h-24 rounded-xl flex items-center justify-center text-[10px] italic text-gray-400">REGISTRATION: WN-HQ-2026-02</div>
+            <div class="reg-card h-24 rounded-xl flex items-center justify-center text-[10px] italic text-gray-400">REGISTRATION: WN-HQ-2026-03</div>
+            <div class="reg-card h-24 rounded-xl flex items-center justify-center text-[10px] italic text-gray-400">REGISTRATION: WN-HQ-2026-04</div>
+            <div class="reg-card h-24 rounded-xl flex items-center justify-center text-[10px] italic text-gray-400">REGISTRATION: WN-HQ-2026-05</div>
         </div>
     </section>
 
-    <section class="py-20 px-12 md:px-24 border-t border-brandCyan/10 bg-brandNavy/30">
+    <section class="py-24 bg-brandCyan/5 text-center px-12 md:px-24">
+        <h2 data-i18n="partner-title" class="text-brandCyan text-2xl font-bold mb-12 italic">الشركاء الاستراتيجيون</h2>
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-6">
+            <div class="partner-card h-24 rounded-xl flex items-center justify-center bg-brandNavy font-black text-gray-700">LOGO</div>
+            <div class="partner-card h-24 rounded-xl flex items-center justify-center bg-brandNavy font-black text-gray-700">LOGO</div>
+            <div class="partner-card h-24 rounded-xl flex items-center justify-center bg-brandNavy font-black text-gray-700">LOGO</div>
+            <div class="partner-card h-24 rounded-xl flex items-center justify-center bg-brandNavy font-black text-gray-700">LOGO</div>
+            <div class="partner-card h-24 rounded-xl flex items-center justify-center bg-brandNavy font-black text-gray-700">LOGO</div>
+        </div>
+    </section>
+
+    <section class="py-24 px-12 md:px-24 border-t border-brandCyan/10 bg-brandNavy/30">
         <div class="grid md:grid-cols-3 gap-20">
             <div class="space-y-6">
                 <h4 data-i18n="footer-about-title" class="text-brandCyan font-bold text-xl italic underline decoration-brandCyan underline-offset-8">جمعية ومضة نور</h4>
-                <p data-i18n="footer-about-desc" class="text-gray-500 text-sm leading-relaxed">بناء مستقبل مشرق عبر الخدمات الإنسانية والرعاية المتميزة لكل محتاج.</p>
+                <p data-i18n="footer-about-desc" class="text-gray-500 text-sm leading-relaxed italic">نعمل على تمكين الإنسان وبناء المجتمعات من خلال حلول تنموية وإنسانية مستدامة.</p>
             </div>
             <div class="space-y-6">
                 <h4 data-i18n="footer-community-title" class="text-brandCyan font-bold text-xl italic">المجتمع</h4>
@@ -165,7 +179,7 @@
                 <div class="flex flex-col gap-3 text-gray-400 text-sm">
                     <p class="hover:text-brandCyan cursor-pointer transition">سياسة الخصوصية</p>
                     <p class="hover:text-brandCyan cursor-pointer transition">الشروط والأحكام</p>
-                    <p class="text-brandCyan font-bold">موثوقية البيانات</p>
+                    <p class="text-brandCyan font-bold border-r-2 border-brandCyan pr-3">موثوقية البيانات</p>
                 </div>
             </div>
         </div>
@@ -177,15 +191,16 @@
             <i class="fab fa-whatsapp cursor-pointer hover:text-white transition"></i>
             <i class="fab fa-x-twitter cursor-pointer hover:text-white transition"></i>
             <i class="fab fa-youtube cursor-pointer hover:text-white transition"></i>
+            <i class="fab fa-telegram cursor-pointer hover:text-white transition"></i>
         </div>
-        <p class="text-[10px] text-gray-700 tracking-[4px] uppercase font-bold italic">© جميع الحقوق محفوظة لجمعية ومضة نور 2026</p>
+        <p class="text-[10px] text-gray-700 tracking-[5px] uppercase font-bold italic">© جميع الحقوق محفوظة لجمعية ومضة نور 2026</p>
     </footer>
 
     <div id="noor-ai-assistant" class="fixed bottom-8 right-8 z-[9999] cursor-pointer group">
         <div data-i18n="ai-greet" class="absolute bottom-20 right-0 bg-white text-brandNavy p-4 rounded-2xl w-64 shadow-2xl opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none text-sm font-bold border-2 border-brandCyan italic">
             مرحبا! أنا نوري، مساعد ومضة نور 🌟 قولي... إزاي أقدر أساعدك النهاردة؟ 😊
         </div>
-        <div class="w-16 h-16 bg-brandNavy border-2 border-brandCyan rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(0,220,232,0.4)] hover:scale-110 transition">
+        <div class="w-16 h-16 bg-brandNavy border-2 border-brandCyan rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(0,220,232,0.4)] hover:scale-110 transition duration-300">
             <i class="fas fa-robot text-brandCyan text-3xl"></i>
         </div>
     </div>
