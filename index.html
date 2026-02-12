@@ -1,42 +1,155 @@
-<style>
-    body { font-family: 'Tajawal', sans-serif; background-color: #050a14; color: white; margin: 0; overflow-x: hidden; }
-    @keyframes floatNav { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(5px); } }
-    .glass-nav { background: rgba(5, 10, 20, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0, 220, 232, 0.3); animation: floatNav 4s ease-in-out infinite; }
-    .card-style { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(0, 220, 232, 0.1); transition: 0.4s; }
-    .card-style:hover { border-color: #00dce8; transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0, 220, 232, 0.15); }
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جمعية ومضة نور | الرئيسية</title>
 
-    /* إلغاء أي خطوط تحت الأيقونات */
-    i { text-decoration: none !important; }
-    footer a { text-decoration: none !important; }
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
-    /* قائمة اللغات */
-    .lang-dropdown {
-        position: absolute;
-        top: 100%;
-        right: 0;
-        background: rgba(5, 10, 20, 0.98);
-        border: 1px solid rgba(0, 220, 232, 0.3);
-        border-radius: 12px;
-        min-width: 120px;
-        display: none;
-        margin-top: 0; /* بدون فجوة */
-    }
+    <script>
+        tailwind.config = {
+            theme: { 
+                extend: { 
+                    colors: { 
+                        brandCyan: '#00dce8', 
+                        brandNavy: '#050a14' 
+                    } 
+                } 
+            }
+        }
+    </script>
 
-    .lang-wrapper:hover .lang-dropdown {
-        display: block;
-    }
+    <style>
+        body { font-family: 'Tajawal', sans-serif; background-color: #050a14; color: white; margin: 0; overflow-x: hidden; }
 
-    .lang-dropdown a {
-        display: block;
-        padding: 8px 12px;
-        font-size: 12px;
-        font-weight: bold;
-        color: white;
-        transition: 0.3s;
-    }
+        @keyframes floatNav { 
+            0%, 100% { transform: translateY(0); } 
+            50% { transform: translateY(5px); } 
+        }
 
-    .lang-dropdown a:hover {
-        background: #00dce8;
-        color: #050a14;
-    }
-</style>
+        .glass-nav { 
+            background: rgba(5, 10, 20, 0.95); 
+            backdrop-filter: blur(12px); 
+            border-bottom: 1px solid rgba(0, 220, 232, 0.3); 
+            animation: floatNav 4s ease-in-out infinite; 
+        }
+
+        .card-style { 
+            background: rgba(255, 255, 255, 0.02); 
+            border: 1px solid rgba(0, 220, 232, 0.1); 
+            transition: 0.4s; 
+        }
+
+        .card-style:hover { 
+            border-color: #00dce8; 
+            transform: translateY(-5px); 
+            box-shadow: 0 10px 30px rgba(0, 220, 232, 0.15); 
+        }
+
+        /* إزالة أي خطوط تحت الأيقونات */
+        i, footer a { 
+            text-decoration: none !important; 
+        }
+
+        /* قائمة اللغات */
+        .lang-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: rgba(5, 10, 20, 0.98);
+            border: 1px solid rgba(0, 220, 232, 0.3);
+            border-radius: 12px;
+            min-width: 130px;
+            display: none;
+        }
+
+        .lang-wrapper:hover .lang-dropdown {
+            display: block;
+        }
+
+        .lang-dropdown a {
+            display: block;
+            padding: 8px 12px;
+            font-size: 12px;
+            font-weight: bold;
+            color: white;
+            transition: 0.3s;
+        }
+
+        .lang-dropdown a:hover {
+            background: #00dce8;
+            color: #050a14;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="fixed top-0 w-full z-[1000] glass-nav py-4 px-8 md:px-12 flex justify-between items-center">
+
+    <div class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-brandCyan rounded-lg flex items-center justify-center text-brandNavy font-black text-xl shadow-[0_0_15px_#00dce8]">
+            WN
+        </div>
+        <span class="font-bold text-lg hidden sm:block">جمعية ومضة نور</span>
+    </div>
+
+    <div class="hidden xl:flex gap-6 text-[12px] font-bold items-center">
+        <a href="#" class="text-brandCyan">الرئيسية</a>
+        <a href="#" class="hover:text-brandCyan transition">من نحن</a>
+        <a href="#" class="hover:text-brandCyan transition">مؤتمراتنا</a>
+        <a href="#" class="hover:text-brandCyan transition">مبادراتنا</a>
+        <a href="#" class="hover:text-brandCyan transition font-black">سوق التمكين</a>
+    </div>
+
+    <div class="flex items-center gap-4">
+
+        <div class="lang-wrapper relative flex items-center gap-2 text-brandCyan text-xs font-bold cursor-pointer">
+            <i class="fas fa-globe"></i>
+            <span>AR</span>
+
+            <div class="lang-dropdown">
+                <a href="#">العربية</a>
+                <a href="#">English</a>
+                <a href="#">Français</a>
+                <a href="#">Español</a>
+            </div>
+        </div>
+
+        <a href="#" class="text-xs font-bold hover:text-brandCyan transition">الدخول</a>
+
+        <a href="#" class="border border-brandCyan text-brandCyan px-4 py-2 rounded-lg text-xs font-bold hover:bg-brandCyan hover:text-brandNavy transition">
+            تبرع الآن
+        </a>
+
+        <a href="#" class="bg-brandCyan text-brandNavy px-4 py-2 rounded-lg text-xs font-black shadow-lg">
+            اتصل بنا
+        </a>
+    </div>
+
+</nav>
+
+<section class="relative h-screen flex items-center justify-center text-center">
+
+    <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=2070"
+         class="absolute inset-0 w-full h-full object-cover opacity-30">
+
+    <div class="relative z-10 px-6 max-w-5xl">
+
+        <h2 class="text-4xl md:text-7xl font-black text-white mb-8 leading-[1.2] whitespace-nowrap">
+            نضيء دروب <span class="text-brandCyan">الخير</span> ونصنع أثر مستدام
+        </h2>
+
+        <button class="bg-brandCyan text-brandNavy px-10 py-4 rounded-full font-black text-lg shadow-[0_0_30px_rgba(0,220,232,0.3)] hover:scale-105 transition flex items-center justify-center gap-3 whitespace-nowrap mx-auto">
+            <i class="fas fa-map-marked-alt text-xl text-brandNavy"></i>
+            <span class="leading-none">مبادراتنا الميدانية</span>
+        </button>
+
+    </div>
+</section>
+
+</body>
+</html>
